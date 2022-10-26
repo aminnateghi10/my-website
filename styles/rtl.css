@@ -1,0 +1,86 @@
+@font-face {
+    font-family: iran-sans;
+    src: url('../public/font/IranSans/inan-sans.eot'),
+    url('../public/font/IranSans/inan-sans.ttf'),
+    url('../public/font/IranSans/inan-sans.woff'),
+    url('../public/font/IranSans/inan-sans.svg');
+}
+
+/*@font-face {*/
+/*    font-family: iran-sans;*/
+/*    src: url('../public/font/IranSans/inan-sans.woff');*/
+/*}*/
+body {
+    direction: rtl;
+
+}
+* {
+    font-family: iran-sans !important;
+}
+
+#return-to-top i {
+    right: 13px;
+}
+
+.desktop-header-3 .navbar-nav li {
+    padding-left: 0rem;
+    padding-right: 3rem;
+}
+
+.fact-item .icon {
+    float: right;
+}
+
+.timeline span.line {
+    right: 34px;
+}
+
+.timeline.exp .timeline-container::after{
+    content: none;
+}
+
+.timeline.exp .timeline-container::before{
+    content: "";
+    background: #FFF;
+    font-family: "simple-line-icons";
+    font-size: 24px;
+    color: #FF4C60;
+    position: absolute;
+    right: -7px;
+    top: 0;
+    z-index: 1;
+}
+
+.timeline.edu .timeline-container::after{
+    content: none;
+}
+
+.timeline.edu .timeline-container::before{
+    content: "";
+    background: #FFF;
+    font-family: "simple-line-icons";
+    font-size: 24px;
+    color: #FF4C60;
+    position: absolute;
+    right: -7px;
+    top: 0;
+    z-index: 1;
+}
+
+.scroll-down.light span {
+    font-size: 12px;
+}
+
+.fact-item .details {
+    margin-right: 60px;
+    margin-left: 0px;
+}
+
+.help-block.with-errors {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+
+
+
