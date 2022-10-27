@@ -2,7 +2,7 @@ import {withFormik} from "formik";
 import * as yup from 'yup'
 
 import {LoginFormValuesInterface} from "../../contracts/auth";
-import InnerRegisterForm from "../../components/auth/innerRegisterForm";
+import InnerLoginForm from "../../components/auth/innerLoginForm";
 
 interface LoginFormProps{
 
@@ -22,6 +22,6 @@ const RegesterForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
     handleSubmit: async (values) => {
         console.log(values)
     }
-})(InnerRegisterForm)
+})(InnerLoginForm)
 
 export default RegesterForm;
