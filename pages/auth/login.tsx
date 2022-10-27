@@ -8,14 +8,14 @@ const Login:NextPage =()=>{
                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div className="card shadow-2-strong" style={{borderRadius: '1rem'}}>
                             <div className="card-body p-5 text-center">
-                                <h3 className="mb-5">ورود</h3>
+                                <h3 className="mb-5">Login</h3>
                                 <div className="form-outline mb-4">
-                                    <label className="form-label" htmlFor="typeEmailX-2">ایمیل</label>
-                                    <input type="email" id="typeEmailX-2" className="form-control form-control-lg" />
+                                    <label className="form-label">Email</label>
+                                    <input type="email" className="form-control form-control-lg" />
                                 </div>
                                 <div className="form-outline mb-4">
-                                    <label className="form-label" htmlFor="typePasswordX-2">رمز عبور</label>
-                                    <input type="password" id="typePasswordX-2" className="form-control form-control-lg" />
+                                    <label className="form-label">Password</label>
+                                    <input type="password" className="form-control form-control-lg" />
                                 </div>
                                 <button className="btn btn-primary btn-lg btn-block" type="submit">ورود</button>
                                 <hr className="my-4" />
