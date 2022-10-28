@@ -3,11 +3,11 @@ import ValidationError from "../exceptions/validationError";
 
 const callApi = () => {
     const axiosInstance = axios.create({
-        baseURL: 'https://api-web.a-nateghi.ir/api/v1'
+        baseURL: 'http://localhost:8000/api/v1'
     })
     axiosInstance.interceptors.request.use(
         (config) => {
-            // config.withCredentials = true
+            config.withCredentials = true
             return config
         },
         err => {

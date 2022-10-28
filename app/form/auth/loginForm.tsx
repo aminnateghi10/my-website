@@ -22,8 +22,7 @@ const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
     validationSchema: loginFormValidationSchema,
     handleSubmit: async (values) => {
         try {
-            let res = await callApi().post('https://api-web.a-nateghi.ir/api/v1/login' , values);
-            storeLoginToken(res.data?.token)
+            await callApi().post('/login' , values);
         }catch (err){
             console.log(err)
         }
