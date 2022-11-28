@@ -4,7 +4,8 @@ import * as yup from 'yup'
 import {LoginFormValuesInterface} from "../../contracts/auth";
 import InnerLoginForm from "../../components/auth/innerLoginForm";
 import callApi from "../../helpers/callApi";
-import {storeLoginToken} from "../../helpers/auth";
+import Router from "next/router";
+import {toast} from "react-toastify";
 
 interface LoginFormProps{
 }
@@ -22,7 +23,22 @@ const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
     validationSchema: loginFormValidationSchema,
     handleSubmit: async (values) => {
         try {
-            await callApi().post('/login' , values);
+            let res : any = await callApi().post('/login' , values);
+            if (res = 200) {
+                toast.success('You have successfully logged in.', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                })
+                setTimeout(()=>{
+                    Router.push('/admin')
+                },2000)
+            }
         }catch (err){
             console.log(err)
         }

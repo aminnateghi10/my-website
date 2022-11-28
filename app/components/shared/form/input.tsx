@@ -8,13 +8,14 @@ interface InputProps {
     inputClassName?: string,
     labelClassName?: string,
     errorClassName?: string
+    as ?: string
 }
 
-const Input: FC<InputProps> = ({name,label,type='text',inputClassName,labelClassName,errorClassName}) => {
+const Input: FC<InputProps> = ({name,label,type='text',inputClassName,labelClassName,errorClassName,as}) => {
     return (
         <>
             <label htmlFor={name} className={labelClassName}>{label}</label>
-            <Field name={name} id={name} type={type} className={inputClassName}/>
+            <Field as={as} name={name} id={name} type={type} className={inputClassName}/>
             <ErrorMessage className={errorClassName} name={name}/>
         </>
     )

@@ -1,11 +1,15 @@
-import {Form} from "formik";
-import Input from "../shared/form/input";
 import Link from "next/link";
+import {Form} from "formik";
+
+import Input from "../shared/form/input";
 
 const InnerRegisterForm = ()=>{
     return (
         <Form className="card-body p-5 text-center">
             <h3 className="mb-5">Register</h3>
+            <div className="form-outline mb-4">
+                <Input name='name' label='Name' inputClassName='form-control form-control-lg' labelClassName='form-label'/>
+            </div>
             <div className="form-outline mb-4">
                 <Input name='email' label='Email' inputClassName='form-control form-control-lg' labelClassName='form-label'/>
             </div>

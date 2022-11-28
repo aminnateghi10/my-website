@@ -1,7 +1,8 @@
-import {NextPage} from "next";
 import ForgotPasswordForm from "../../app/form/auth/forgotPasswordForm";
+import UserAuthLayout from "../../app/components/auth/userAuthLayout";
+import {NextPageWithLayout} from "../_app";
 
-const ForgotPassword:NextPage =()=>{
+const ForgotPassword:NextPageWithLayout =()=>{
     return(
         <section className="vh-100 p-0">
             <div className="container py-5 h-100">
@@ -16,5 +17,7 @@ const ForgotPassword:NextPage =()=>{
         </section>
     )
 }
+
+ForgotPassword.getLayout=(page)=><UserAuthLayout>{page}</UserAuthLayout>
 
 export default ForgotPassword;

@@ -1,7 +1,8 @@
-import {NextPage} from "next";
 import LoginForm from "../../app/form/auth/loginForm";
+import UserAuthLayout from "../../app/components/auth/userAuthLayout";
+import {NextPageWithLayout} from "../_app";
 
-const Login:NextPage =()=>{
+const Login:NextPageWithLayout =()=>{
     return(
         <section className="vh-100 p-0">
             <div className="container py-5 h-100">
@@ -16,5 +17,6 @@ const Login:NextPage =()=>{
         </section>
     )
 }
+Login.getLayout=(page)=><UserAuthLayout>{page}</UserAuthLayout>
 
 export default Login;

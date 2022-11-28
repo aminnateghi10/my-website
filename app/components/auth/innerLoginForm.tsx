@@ -2,10 +2,10 @@ import {Form} from "formik";
 import Input from "../shared/form/input";
 import Link from "next/link";
 
-const InnerLoginForm = ()=>{
+const InnerInformationForm = ()=>{
     return (
         <Form className="card-body p-5 text-center">
-            <h3 className="mb-5">Login</h3>
+            <h3 className="mb-5">Information</h3>
             <div className="form-outline mb-4">
                 <Input name='email' label='Email' inputClassName='form-control form-control-lg' labelClassName='form-label'/>
             </div>
@@ -20,4 +20,4 @@ const InnerLoginForm = ()=>{
     )
 }
 
-export default InnerLoginForm;
+export default InnerInformationForm;
