@@ -9,7 +9,7 @@ const InnerForgotPasswordForm = ()=>{
             <div className="form-outline mb-4">
                 <Input name='email' label='Email' inputClassName='form-control form-control-lg' labelClassName='form-label'/>
             </div>
-            <button className="btn btn-primary btn-lg btn-block" type="submit">send email</button>
+            <button className="btn btn-primary btn-lg btn-block py-4" type="submit">send email</button>
             <hr className="my-4" />
             <Link href='/auth/login'>login</Link>
         </Form>

@@ -35,6 +35,7 @@ const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({
                     progress: undefined,
                     theme: "light",
                 })
+
                 setTimeout(()=>{
                     Router.push('/admin')
                 },2000)

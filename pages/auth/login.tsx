@@ -1,6 +1,6 @@
+import {NextPageWithLayout} from "../_app";
 import LoginForm from "../../app/form/auth/loginForm";
 import UserAuthLayout from "../../app/components/auth/userAuthLayout";
-import {NextPageWithLayout} from "../_app";
 
 const Login:NextPageWithLayout =()=>{
     return(

@@ -1,6 +1,7 @@
+import {useEffect, useState} from "react";
+
 import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
-import {useEffect, useState} from "react";
 import callApi from "../../app/helpers/callApi";
 import InformationForm from "../../app/form/admin/informationForm";
 

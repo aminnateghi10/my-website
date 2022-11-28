@@ -1,10 +1,8 @@
 import {withFormik} from "formik";
 import * as yup from 'yup'
 
-import InnerLoginForm from "../../components/admin/innerInformationForm";
 import InnerInformationForm from "../../components/admin/innerInformationForm";
 import callApi from "../../helpers/callApi";
-import Router from "next/router";
 import {toast} from "react-toastify";
 import {InformationFormValuesInterface} from "../../contracts/admin";
 

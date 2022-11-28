@@ -1,6 +1,6 @@
+import {NextPageWithLayout} from "../_app";
 import ForgotPasswordForm from "../../app/form/auth/forgotPasswordForm";
 import UserAuthLayout from "../../app/components/auth/userAuthLayout";
-import {NextPageWithLayout} from "../_app";
 
 const ForgotPassword:NextPageWithLayout =()=>{
     return(

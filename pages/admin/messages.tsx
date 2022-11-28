@@ -1,9 +1,10 @@
-import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {Button, Modal, Table} from "react-bootstrap";
 import {toast} from "react-toastify";
+import axios from "axios";
+
+import {NextPageWithLayout} from "../_app";
+import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 
 interface MassageItemProps {
     "id": number,
@@ -126,12 +127,11 @@ const Messages: NextPageWithLayout = () => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <button onClick={() => deleteItem(massageView.id)} type="button" className="btn btn-danger h6">
+                    <button onClick={() => deleteItem(massageView?.id)} type="button" className="btn btn-danger h6">
                         Delete
                     </button>
                 </Modal.Footer>
             </Modal>
-
         </div>
     )
 }

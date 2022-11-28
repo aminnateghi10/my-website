@@ -5,10 +5,9 @@ import {ForgotPasswordFormValuesInterface} from "../../contracts/auth";
 import InnerForgotPasswordForm from "../../components/auth/innerForgotPasswordForm";
 
 interface ForgotPasswordFormProps{
-
 }
 
-const forgotpasswordFormValidationSchema =yup.object().shape({
+const ForgotPasswordFormValidationSchema =yup.object().shape({
     email: yup.string().required().email(),
 })
 
@@ -16,7 +15,7 @@ const ForgotPasswordForm = withFormik<ForgotPasswordFormProps, ForgotPasswordFor
     mapPropsToValues: props => ({
         email: ''
     }) ,
-    validationSchema: forgotpasswordFormValidationSchema,
+    validationSchema: ForgotPasswordFormValidationSchema,
     handleSubmit: async (values) => {
         console.log(values)
     }
