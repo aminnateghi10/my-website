@@ -8,3 +8,4 @@ export interface InformationFormValuesInterface {
     nomineesWinner: string,
     biography: string
 }
+

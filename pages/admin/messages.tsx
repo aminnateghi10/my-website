@@ -12,8 +12,8 @@ interface MassageItemProps {
     "email": string,
     "subject": string,
     "body": string,
-    "created_at": string,
-    "updated_at": string
+    "created_at"?: string,
+    "updated_at"?: string
 }
 
 const Messages: NextPageWithLayout = () => {
@@ -21,7 +21,13 @@ const Messages: NextPageWithLayout = () => {
     const [data, setData] = useState<MassageItemProps[]>();
 
     const [show, setShow] = useState(false);
-    const [massageView , setMassageView] = useState<MassageItemProps>()
+    const [massageView , setMassageView] = useState<MassageItemProps>({
+        "id": 0,
+        "name": '',
+        "email": '',
+        "subject": '',
+        "body": '',
+    })
     const handleClose = () => setShow(false);
     const handleShow = (item:MassageItemProps) =>{
         setMassageView(item)
@@ -127,7 +133,7 @@ const Messages: NextPageWithLayout = () => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <button onClick={() => deleteItem(massageView?.id)} type="button" className="btn btn-danger h6">
+                    <button onClick={() => deleteItem(massageView.id)} type="button" className="btn btn-danger h6">
                         Delete
                     </button>
                 </Modal.Footer>
