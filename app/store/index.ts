@@ -2,11 +2,13 @@ import {configureStore} from '@reduxjs/toolkit'
 
 // import User from "./user";
 import Skills from "./skills";
+import Services from './services';
 
 export const store = configureStore({
     reducer: {
         // user: User ,
-        skills:Skills
+        skills:Skills ,
+        services:Services
     }
 })
 

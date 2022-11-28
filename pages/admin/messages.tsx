@@ -5,6 +5,7 @@ import axios from "axios";
 
 import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
+import callApi from "../../app/helpers/callApi";
 
 interface MassageItemProps {
     "id": number,
@@ -36,11 +37,11 @@ const Messages: NextPageWithLayout = () => {
 
     useEffect(() => {
         axios.get('https://api.a-nateghi.ir/api/v1/tickets').then(res => setData(res.data.data))
+        callApi().get('ticket').then(res=>  console.log(res))
     }, [])
 
     const deleteItem = async (id: number) => {
         let res = await axios.delete(`https://api.a-nateghi.ir/api/v1/tickets/${id}`);
-
         if (res.status == 201) {
             let newList = data?.filter((item: MassageItemProps) => item.id != id);
             setData(newList);

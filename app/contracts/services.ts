@@ -1,8 +1,8 @@
 export interface ServiceInterface {
-    created_at:string ,
-    id:string
+    id:string,
     image:string,
     meta:string
     title:string,
-    updated_at:string
+    created_at?:string ,
+    updated_at?:string
 }

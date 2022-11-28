@@ -1,20 +1,23 @@
+import {useEffect, useState} from "react";
+
 import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
-import {useEffect, useState} from "react";
 import callApi from "../../app/helpers/callApi";
-import {Form, Formik, Field} from "formik";
-import {addItemSkills} from "../../app/store/skills";
-import {toast} from "react-toastify";
-import Input from "../../app/components/shared/form/input";
-import axios from "axios";
 import AddService from "../../app/components/admin/services/addService";
 import {ServiceInterface} from "../../app/contracts/services";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../app/store";
+import {createServices} from "../../app/store/services";
+import ItemService from "../../app/components/admin/services/itemService";
 
 
 const Services: NextPageWithLayout = () => {
     const [state, setState] = useState<ServiceInterface[]>();
+
+    const data = useSelector((state: RootState) => state.services)
+    const dispatch = useDispatch();
     useEffect(() => {
-        callApi().get('services').then(res => setState(res.data.data))
+        callApi().get('services').then(res => dispatch(createServices(res.data.data)))
     }, [])
     return (
         <div className='p-5'>
@@ -31,17 +34,9 @@ const Services: NextPageWithLayout = () => {
                 </thead>
                 <tbody>
                 {
-                    state?.map((item : ServiceInterface, index:number) => (
+                    data?.services?.map((item : ServiceInterface) => (
                             <tr key={item.id}>
-                                <th scope="row">{index}</th>
-                                <td>{item.title}</td>
-                                <td><img style={{width: '50px'}} src={`http://localhost:8000/${item.image}`}/></td>
-                                <td>
-                                    <div>
-                                        <button type="button" className="btn btn-info mr-1 h6">view</button>
-                                        <button type="button" className="btn btn-danger h6">Delete</button>
-                                    </div>
-                                </td>
+                                <ItemService item={item}/>
                             </tr>
                         )
                     )
