@@ -2,10 +2,10 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Button, Modal, Table} from "react-bootstrap";
 
-import {deleteItemServices} from "../../../store/services";
 import callApi from "../../../helpers/callApi";
 import {toast} from "react-toastify";
-import EditService from "./editService";
+import EditCustomersAndReviews from "./editCustomersAndReviews";
+import {deleteItemCustomersAndReviews} from "../../../store/customersAndReviews";
 
 const ItemService = ({item}:any)=>{
 
@@ -19,9 +19,9 @@ const ItemService = ({item}:any)=>{
 
     const deleteItem =async (id:number) => {
         try {
-            let res = await callApi().delete(`services/${id}`)
+            let res = await callApi().delete(`clients/${id}`)
 
-            dispatch(deleteItemServices(id))
+            dispatch(deleteItemCustomersAndReviews(id))
 
             toast.success('Removed successfully', {
                 position: "bottom-right",
@@ -38,11 +38,14 @@ const ItemService = ({item}:any)=>{
         }
     }
 
+    console.log(item)
+
     return(
         <>
             <th scope="row">{item.id}</th>
-            <td>{item.title}</td>
-            <td><img style={{width: '50px'}} src={`http://localhost:8000/${item.image}`}/></td>
+            <td>{item.name}</td>
+            <td>{item.job}</td>
+            <td><img style={{width: '50px'}} src={`http://localhost:8000/${item.img}`}/></td>
             <td>
                 <div>
                     <button type="button" className="btn btn-info mr-1 h6" onClick={handleClose}>view</button>
@@ -61,7 +64,7 @@ const ItemService = ({item}:any)=>{
                     edit ?
                         <>
                             <Modal.Body>
-                                <EditService item={item}/>
+                                <EditCustomersAndReviews item={item}/>
                             </Modal.Body>
                             <Modal.Footer>
                                 <button onClick={()=>setEdit(false)} type="button" className="btn btn-warning h6">Cancel</button>
@@ -72,15 +75,19 @@ const ItemService = ({item}:any)=>{
                             <Modal.Body>
                                 <Table>
                                     <tr>
-                                        <td>Title</td>
-                                        <td>{item?.title}</td>
+                                        <td>Name</td>
+                                        <td>{item?.name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job</td>
+                                        <td>{item?.job}</td>
                                     </tr>
                                     <tr>
                                         <td>Body</td>
                                         <td>{item?.body}</td>
                                     </tr>
                                 </Table>
-                                <img src={`http://localhost:8000/${item.image}`}/>
+                                <img src={`http://localhost:8000/${item.img}`}/>
 
                             </Modal.Body>
                             <Modal.Footer>

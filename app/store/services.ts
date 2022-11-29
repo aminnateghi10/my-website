@@ -19,6 +19,7 @@ export const Services = createSlice({
             state.services = action.payload
         },
         editItemServices: (state, action: PayloadAction<ServiceInterface>) => {
+            console.log(action.payload , 'amin')
             let newState = state.services.map((element : ServiceInterface)=>{
                 if (element.id === action.payload.id){
                     return  {...element , ...action.payload}
