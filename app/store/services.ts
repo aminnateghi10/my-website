@@ -27,8 +27,8 @@ export const Services = createSlice({
             state.services = newState;
         },
         deleteItemServices: (state, action: PayloadAction<number>) => {
-            // let newState = state.services?.filter((item: ServiceInterface) => item.id != action.payload);
-            // state.services = newState;
+            let newState = state.services?.filter((item: ServiceInterface) => item.id != action.payload);
+            state.services = newState;
         },
         addItemServices: (state, action: PayloadAction<any>) => {
             state.services.push(action.payload)

@@ -1,5 +1,6 @@
 import {Field, Form, Formik} from "formik";
 import callApi from "../../../helpers/callApi";
+import {ChangeEvent, ChangeEventHandler} from "react";
 
 const AddService = ()=>{
     return(
@@ -39,7 +40,7 @@ const AddService = ()=>{
                             <Field className='d-block' name="text"/>
                         </div>
                         <input name="img" type='file' className='d-block'
-                               onChange={(e) => formProps.setFieldValue('img', e.target.files[0])}/>
+                               onChange={(e: any) => formProps.setFieldValue('img', e.target.files[0])}/>
                         <button className="btn btn-success" type="submit">Add</button>
                     </Form>
                 )}
