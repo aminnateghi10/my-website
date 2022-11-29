@@ -23,7 +23,7 @@ const Services: NextPageWithLayout = () => {
         <div className='p-5'>
             <AddService/>
             <h2 className='text-center mt-5'>List Services</h2>
-            <table className="table text-center table-striped table-hover table-vcenter">
+            <table className="table text-center table-striped table-hover table-vcenter mt-3">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
