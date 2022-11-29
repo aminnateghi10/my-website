@@ -5,10 +5,13 @@ import {Button, Modal, Table} from "react-bootstrap";
 import {deleteItemServices} from "../../../store/services";
 import callApi from "../../../helpers/callApi";
 import {toast} from "react-toastify";
+import EditService from "./editService";
 
 const ItemService = ({item}:any)=>{
 
     const [show, setShow] = useState(false);
+
+    const [edit, setEdit] = useState(false);
 
     const handleClose = () => setShow(!show);
 
@@ -54,33 +57,43 @@ const ItemService = ({item}:any)=>{
                 backdrop="static"
                 keyboard={false}
             >
-                <Modal.Body>
-                    <Table>
-                        <tr>
-                            <td>Name</td>
-                            <td>{item?.title}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>{item?.body}</td>
-                        </tr>
-                        <tr>
-                            <td>subject</td>
-                            <td>{item?.subject}</td>
-                        </tr>
-                        <tr>
-                            <img style={{width: '50px'}} src={`http://localhost:8000/${item.image}`}/>
-                        </tr>
-                    </Table>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <button onClick={()=>deleteItem(item.id)} type="button" className="btn btn-danger h6">
-                        Delete
-                    </button>
-                </Modal.Footer>
+                {
+                    edit ?
+                        <>
+                            <Modal.Body>
+                                <EditService item={item}/>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <button onClick={()=>setEdit(false)} type="button" className="btn btn-warning h6">Cancel</button>
+                            </Modal.Footer>
+                        </>
+                        :
+                        <>
+                            <Modal.Body>
+                                <Table>
+                                    <tr>
+                                        <td>Title</td>
+                                        <td>{item?.title}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Body</td>
+                                        <td>{item?.body}</td>
+                                    </tr>
+                                </Table>
+                                <img src={`http://localhost:8000/${item.image}`}/>
+
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                <button onClick={()=>deleteItem(item.id)} type="button" className="btn btn-danger h6">
+                                    Delete
+                                </button>
+                                <button onClick={()=>setEdit(true)} type="button" className="btn btn-success h6">Edit</button>
+                            </Modal.Footer>
+                        </>
+                }
             </Modal>
         </>
     )
