@@ -225,6 +225,10 @@
     top: 6px;
 }
 
+.active {
+    color: #ffe5e5 !important;
+}
+
 /*-------------------- END Sidebar Menu -------------------*/
 
 

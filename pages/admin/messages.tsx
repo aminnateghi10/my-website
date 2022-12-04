@@ -68,7 +68,7 @@ const Messages: NextPageWithLayout = () => {
                     <th className="text-center" data-radium="true">Row</th>
                     <th>name</th>
                     <th className="d-none d-md-table-cell">Email</th>
-                    <th className="d-none d-md-table-cell">subject</th>
+                    <th className="d-none d-md-table-cell">Subject</th>
                     <th className="text-center" data-radium="true">operations</th>
                 </tr>
                 </thead>
@@ -117,7 +117,7 @@ const Messages: NextPageWithLayout = () => {
                             <td>{massageView?.email}</td>
                         </tr>
                         <tr>
-                            <td>subject</td>
+                            <td>Subject</td>
                             <td>{massageView?.subject}</td>
                         </tr>
                         <tr>
@@ -125,7 +125,7 @@ const Messages: NextPageWithLayout = () => {
                             <td>{massageView?.body}</td>
                         </tr>
                         <tr>
-                            <td>shipping time</td>
+                            <td>Shipping Time</td>
                             <td>{massageView?.created_at}</td>
                         </tr>
                     </Table>

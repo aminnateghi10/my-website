@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import React, {useState} from "react";
 import Link from "next/link";
+import ActiveLink from "../../shared/activeLink";
 
 const SidebarMenu = () => {
 
@@ -34,19 +35,29 @@ const SidebarMenu = () => {
                             {
                                 navigation?.map((item)=>(
                                     <li key={item.name}>
-                                            <Link onClick={()=>setActive(item.name)} className='d-flex align-items-center' href={item?.href}>
-                                                    <item.icon style={{width:'22px'}}/>
-                                                    <span>{item.name}</span>
-                                            </Link>
+                                            <ActiveLink href={item.href}>
+                                                {({active})=>(
+                                                    <div onClick={()=>setActive(item.name)} className={`d-flex align-items-center ${active ?'active' : ''}`}>
+                                                        <item.icon style={{width:'22px'}}/>
+                                                        <span>{item.name}</span>
+                                                    </div>
+                                                )}
+                                            </ActiveLink>
                                         {
                                             item.list ?
                                                 <ul className={`list-unstyled ${active === item.name ? '':'collapse'}`}>
                                                     {
                                                         item.list?.map((item)=>(
                                                             <li key={item.name}>
-                                                                <Link className='d-flex align-items-center text-decoration-none' href={item?.href}>
-                                                                    <span>{item.name}</span>
-                                                                </Link>
+                                                                <ActiveLink href={item?.href}>
+                                                                    {
+                                                                        ({active})=>(
+                                                                    <div className={`d-flex align-items-center text-decoration-none ${active ?'active' : ''}`}>
+                                                                        <span>{item.name}</span>
+                                                                    </div>
+                                                                        )
+                                                                    }
+                                                                </ActiveLink>
                                                             </li>
                                                         ))
                                                     }

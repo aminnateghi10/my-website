@@ -1,17 +1,17 @@
+import {toast} from "react-toastify";
 import {withFormik} from "formik";
 import * as yup from 'yup'
 
-import InnerInformationForm from "../../components/admin/innerInformationForm";
 import callApi from "../../helpers/callApi";
-import {toast} from "react-toastify";
 import {InformationFormValuesInterface} from "../../contracts/admin";
+import InnerInformationForm from "../../components/admin/information/innerInformationForm";
 
-interface InformationFormProps{
-    data : any
+interface InformationFormProps {
+    data: InformationFormValuesInterface
 }
 
 
-const InformationFormValidationSchema =yup.object().shape({
+const InformationFormValidationSchema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().required().email(),
     jab: yup.string().required(),
@@ -23,11 +23,19 @@ const InformationFormValidationSchema =yup.object().shape({
 })
 
 const InformationForm = withFormik<InformationFormProps, InformationFormValuesInterface>({
-    mapPropsToValues: props => (props?.data) ,
+    mapPropsToValues: props => ({
+        name: props.data.name,
+        jab: props.data.jab,
+        email: props.data.email,
+        biography: props.data.biography,
+        projectsCompleted: props.data.projectsCompleted,
+        nomineesWinner: props.data.nomineesWinner,
+        satisfiedClients: props.data.satisfiedClients,
+        cupOfCoffee: props.data.cupOfCoffee
+    }),
     validationSchema: InformationFormValidationSchema,
-    handleSubmit: async(values) => {
-            let res  = await callApi().put('/information' , values);
-            console.log(values)
+    handleSubmit: async (values) => {
+        let res = await callApi().put('/information', values);
         try {
             toast.success('You have successfully logged in.', {
                 position: "top-right",
@@ -39,7 +47,7 @@ const InformationForm = withFormik<InformationFormProps, InformationFormValuesIn
                 progress: undefined,
                 theme: "light",
             })
-        }catch (err){
+        } catch (err) {
             console.log(err)
         }
     }

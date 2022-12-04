@@ -1,5 +1,6 @@
 import {Form} from "formik";
-import Input from "../shared/form/input";
+
+import Input from "../../shared/form/input";
 
 const InnerLoginForm = ()=>{
     return (

@@ -43,8 +43,6 @@ const Services: NextPageWithLayout = () => {
                 }
                 </tbody>
             </table>
-
-
         </div>
     )
 }

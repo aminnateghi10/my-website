@@ -1,17 +1,28 @@
-import {Field, Form, Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import callApi from "../../../helpers/callApi";
 import {ChangeEvent, ChangeEventHandler} from "react";
 import {toast} from "react-toastify";
+import * as yup from "yup";
+import Input from "../../shared/form/input";
 
 const EditCustomersAndReviews = ({item}:any)=>{
+
+    const EditClientsFormValidationSchema = yup.object().shape({
+        name: yup.string().required(),
+        job: yup.string().required(),
+        body: yup.string().required(),
+        img: yup.mixed().required(),
+    });
+
     return(
         <Formik
             initialValues={{
                 name: item.name,
                 job: item.job,
                 body: item.body,
-                img: `http://localhost:8000/${item.img}`,
+                img: '',
             }}
+            validationSchema={EditClientsFormValidationSchema}
             onSubmit={async (values) => {
                 console.log(values)
                 const data = new FormData();
@@ -39,20 +50,19 @@ const EditCustomersAndReviews = ({item}:any)=>{
             {(formProps) => (
                 <Form className="needs-validation text-left">
                     <div className='mt-2'>
-                        <label>Name</label>
-                        <Field className='d-block form-control' name="name"/>
+                        <Input name='name' inputClassName='d-block form-control' label='Name'/>
                     </div>
                     <div className='mt-2'>
-                        <label>body</label>
-                        <Field className='d-block form-control' name="body"/>
+                        <Input name='job' label='Job' inputClassName='d-block form-control' />
                     </div>
                     <div className='mt-2'>
-                        <label>body</label>
-                        <Field className='d-block form-control' name="job"/>
+                        <Input name='body' label='Body' inputClassName='d-block form-control' />
                     </div>
                     <div className='mt-2'>
-                        <label>img</label>
-                        <input name="img" type='file' className='d-block form-control' onChange={(e: any) => formProps.setFieldValue('img', e.target.files[0])}/>
+                        <label>Img</label>
+                        <input name="img" type='file' className='d-block form-control'
+                               onChange={(e: any) => formProps.setFieldValue('img', e.target.files[0])}/>
+                        <ErrorMessage name='img'/>
                     </div>
                     <button type="submit" className="btn btn-success h6 mt-3">
                         Record

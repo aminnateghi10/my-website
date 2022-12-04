@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 
 import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import callApi from "../../app/helpers/callApi";
 import InformationForm from "../../app/form/admin/informationForm";
+import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 
 
 const Information :NextPageWithLayout= ()=>{
@@ -12,7 +12,7 @@ const Information :NextPageWithLayout= ()=>{
         callApi().get('information').then(res => setData(res.data.data))
     }, []);
 
-    const [data , setData] = useState<object>();
+    const [data , setData] = useState();
 
     return(
         data ?

@@ -1,43 +1,40 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
-import {useDispatch} from "react-redux";
-import {toast} from "react-toastify";
-import * as yup from 'yup'
-
 import callApi from "../../../helpers/callApi";
-import {addItemCustomersAndReviews} from "../../../store/customersAndReviews";
+import {ChangeEvent, ChangeEventHandler} from "react";
+import {useDispatch} from "react-redux";
+import {addItemServices} from "../../../store/services";
+import {toast} from "react-toastify";
+import * as yup from "yup";
 import Input from "../../shared/form/input";
 
-const AddCustomersAndReviews = ()=>{
+const AddExperiences = ()=>{
 
     const dispatch = useDispatch();
 
-    const AddClientsFormValidationSchema = yup.object().shape({
-        name: yup.string().required(),
-        job: yup.string().required(),
+    const AddExperiencesFormValidationSchema = yup.object().shape({
+        type: yup.string().required(),
+        title: yup.string().required(),
         body: yup.string().required(),
-        img: yup.mixed().required(),
+        start: yup.string().required(),
+        end: yup.string().required(),
     });
+
     return(
         <div className='d-flex justify-content-center'>
             <Formik
                 initialValues={{
-                    name:'',
-                    job:'',
+                    type:'',
+                    title:'',
                     body:'',
-                    img:'',
+                    start:'',
+                    end:'',
                 }}
-                validationSchema={AddClientsFormValidationSchema}
+                validationSchema={AddExperiencesFormValidationSchema}
                 onSubmit={async (values) => {
                     console.log(values)
                     try {
-                        const data = new FormData();
-                        data.append('file', values.img)
-                        data.append('name', values.name);
-                        data.append('job', values.job);
-                        data.append('body', values.body);
-
-                        let res = await callApi().post('clients', data).then(res => {
-                            dispatch(addItemCustomersAndReviews(res.data.data))
+                        let res = await callApi().post('experiences', values).then(res => {
+                            dispatch(addItemServices(res.data.data))
                         })
 
                         toast.success('Added successfully', {
@@ -55,29 +52,32 @@ const AddCustomersAndReviews = ()=>{
                     }
                 }}
             >
-                {(formProps) => (
                     <Form className="needs-validation border p-4 rounded">
                         <div className='mt-2'>
-                            <Input name='name' inputClassName='d-block form-control' label='Name'/>
+                            <label>type</label>
+                            <Field as="select" name="type" className="form-control">
+                                <option value="JobExperiences">Job Experiences</option>
+                                <option value="EducationalExperiences">Educational Experiences</option>
+                            </Field>
+                            <ErrorMessage name='type'/>
                         </div>
                         <div className='mt-2'>
-                            <Input name='job' label='Job' inputClassName='d-block form-control' />
+                            <Input name='title' label='Title' inputClassName='d-block form-control'/>
                         </div>
                         <div className='mt-2'>
-                            <Input name='body' label='Body' inputClassName='d-block form-control' />
+                            <Input name='body' label='Body' inputClassName='d-block form-control'/>
                         </div>
                         <div className='mt-2'>
-                            <label>Img</label>
-                            <input name="img" type='file' className='d-block form-control'
-                                   onChange={(e: any) => formProps.setFieldValue('img', e.target.files[0])}/>
-                            <ErrorMessage name='img'/>
+                            <Input name='start' label='start' inputClassName='d-block form-control'/>
+                        </div>
+                        <div className='mt-2'>
+                            <Input name='end' label='End' inputClassName='d-block form-control'/>
                         </div>
                         <button className="btn btn-success mt-2" type="submit">Add</button>
                     </Form>
-                )}
             </Formik>
         </div>
     )
 }
 
-export default AddCustomersAndReviews;
+export default AddExperiences;

@@ -4,12 +4,14 @@ import User from "./user";
 import Skills from "./skills";
 import Services from './services';
 import CustomersAndReviews from "./customersAndReviews";
+import Experience from "./experience";
 
 export const store = configureStore({
     reducer: {
         user: User ,
         skills:Skills ,
         services:Services,
+        experience:Experience,
         customersAndReviews:CustomersAndReviews,
     }
 })

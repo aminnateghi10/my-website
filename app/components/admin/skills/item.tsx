@@ -1,17 +1,17 @@
-import {ItemSkills} from "../../../contracts/skills";
 import {useState} from "react";
-import callApi from "../../../helpers/callApi";
-import {toast} from "react-toastify";
 import {Form, Formik} from "formik";
-import Input from "../../shared/form/input";
+import {toast} from "react-toastify";
 import {useDispatch} from "react-redux";
+
+import Input from "../../shared/form/input";
+import callApi from "../../../helpers/callApi";
 import {deleteItemSkills, editItemSkills} from "../../../store/skills";
+import * as yup from "yup";
 
 
 const Item = ({item}: any) => {
 
     const [edit, setEdit] = useState<boolean>(true)
-
     const dispatch = useDispatch();
 
     const deleteItem = async (id: number) => {
@@ -30,6 +30,12 @@ const Item = ({item}: any) => {
             });
         }
     }
+
+    const EditSkillFormValidationSchema = yup.object().shape({
+        title: yup.string().required(),
+        percent: yup.string().required(),
+        color: yup.string().required(),
+    })
 
     return (
         <>{
@@ -53,6 +59,7 @@ const Item = ({item}: any) => {
                 :
                 <Formik
                     initialValues={{title: item.title, percent: item?.percent, color: item?.meta?.p}}
+                    validationSchema={EditSkillFormValidationSchema}
                     onSubmit={async (values) => {
                         let newData = {
                             "id": item.id,
@@ -65,21 +72,30 @@ const Item = ({item}: any) => {
                         }
                         let res = await callApi().put(`skills/${item.id}`, newData)
                         if (res.status = 200) {
-                            console.log('amin')
+                            toast.success('Editing was done successfully', {
+                                position: "bottom-right",
+                                autoClose: 2000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                            });
                             dispatch(editItemSkills(newData))
                         }
                         setEdit(true)
                     }}
                 >
-                    <Form className="card text-white text-center my-2 " style={{background: `${item?.meta?.p}`}}>
+                    <Form className="card text-white text-center my-2 px-2" style={{background: `${item?.meta?.p}`}}>
                         <div className="card-header bg-skills-header p-0">
-                            <Input name='title' label='Title'/>
+                            <Input  inputClassName='form-control' name='title' label='Title'/>
                         </div>
-                        <div className="pt-2">
-                            <Input name='percent' label='Value'/>
-                            <Input name='color' label='Color' type='color'/>
+                        <div>
+                            <Input  inputClassName='form-control' name='percent' label='Value'/>
+                            <Input inputClassName='form-control' name='color' label='Color' type='color'/>
                         </div>
-                        <div className='d-flex justify-content-between px-2 pb-2'>
+                        <div className='d-flex justify-content-between px-2 py-2'>
                             <button type="submit" className="btn btn-success btn-sm px-3 py-3">Edit</button>
                             <button onClick={() => setEdit(!edit)} type="button"
                                     className="btn btn-warning btn-sm p-3">Cancel
