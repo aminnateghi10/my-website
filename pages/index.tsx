@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from "../app/components/home-page/navbar/index";
+import Home from "../app/components/home-page/home";
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <div>
       <Head>
@@ -11,8 +12,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Navbar/>
+        <Home/>
     </div>
   )
 }
 
-export default Home
+export default HomePage
