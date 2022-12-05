@@ -4,14 +4,8 @@ import ListItem from "./listItem";
 function Navbar() {
     const [toggle, setToggle] = useState<boolean>()
 
-    const smoothScroll = (e: any) => {
-        e.preventDefault();
-        let element = document.querySelector(e.target.getAttribute('href'));
-        element && element.scrollIntoView({behavior: "smooth", block: "start"});
-    }
 
     const navbarList = [
-        {label: 'Contact', href: '#amin'},
         {label: 'Home', href: '#home'},
         {label: 'About', href: '#about'},
         {label: 'Services', href: '#services'},

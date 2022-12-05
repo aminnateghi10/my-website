@@ -1181,9 +1181,7 @@ select.portfolio-filter-mobile {
   color: #DEDEEA;
   float: left;
 }
-.fact-item .number {
-  font-size: 30px;
-}
+
 .fact-item .number em {
   font-style: normal;
 }

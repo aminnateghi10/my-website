@@ -1,6 +1,6 @@
 export interface ItemSkills {
     id: number,
-    meta: object,
+    meta: {p:string,x:string},
     percent: string,
     title: string,
     created_at ?: string,
