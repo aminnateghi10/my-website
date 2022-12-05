@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import {useState} from "react";
-import Navbar from "../app/components/home-page/Navbar";
+import Navbar from "../app/components/home-page/navbar/index";
 
 const Home: NextPage = () => {
   return (
