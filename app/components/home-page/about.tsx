@@ -27,6 +27,7 @@ function About({data}: InterfaceProps) {
                 res.data
                 setSkills(res.data.data)
                 setLoading(true)
+                console.log(res)
             })
     }, [])
 
@@ -91,7 +92,7 @@ function About({data}: InterfaceProps) {
                                             <span><CheckCircleIcon style={{width: '30px'}}/></span>
                                             <div className='pl-2'>
                                                 <h3 className="mb-0 mt-0 number">
-                                                    <em className="count">{data.projectsCompleted}</em>
+                                                    <em className="count">{data?.projectsCompleted}</em>
                                                 </h3>
                                                 <p className="mb-0">Projects completed</p>
                                             </div>
@@ -106,7 +107,7 @@ function About({data}: InterfaceProps) {
                                             <span><MusicalNoteIcon style={{width: '30px'}}/></span>
                                             <div className='pl-2'>
                                                 <h3 className="mb-0 mt-0 number">
-                                                    <em className="count">{data.cupOfCoffee}</em>
+                                                    <em className="count">{data?.cupOfCoffee}</em>
                                                 </h3>
                                                 <p className="mb-0">Cup of coffee</p>
                                             </div>
@@ -121,7 +122,7 @@ function About({data}: InterfaceProps) {
                                             <span><UsersIcon style={{width: '30px'}}/></span>
                                             <div className='pl-2'>
                                                 <h3 className="mb-0 mt-0 number">
-                                                    <em className="count">{data.satisfiedClients}</em>
+                                                    <em className="count">{data?.satisfiedClients}</em>
                                                 </h3>
                                                 <p className="mb-0">Satisfied clients</p>
                                             </div>
@@ -136,7 +137,7 @@ function About({data}: InterfaceProps) {
                                             <span><TrophyIcon style={{width: '30px'}}/></span>
                                             <div className='pl-2'>
                                                 <h3 className="mb-0 mt-0 number">
-                                                    <em className="count">{data.nomineesWinner}</em>
+                                                    <em className="count">{data?.nomineesWinner}</em>
                                                 </h3>
                                                 <p className="mb-0">Nominees winner</p>
                                             </div>
@@ -144,7 +145,6 @@ function About({data}: InterfaceProps) {
                                     </div>
                                     <div className="spacer d-md-none d-lg-none" data-height={30}/>
                                 </div>
-
                             </div>
                         </div>
                     </section>

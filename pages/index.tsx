@@ -6,12 +6,16 @@ import Navbar from "../app/components/home-page/navbar/index";
 import Home from "../app/components/home-page/home";
 import callApi from "../app/helpers/callApi";
 import About from "../app/components/home-page/about";
+import Services from "../app/components/home-page/services";
 
 const HomePage: NextPage = () => {
+
     const [information , setInformation] = useState()
+
     useEffect(()=>{
         callApi().get('information').then(res => setInformation(res?.data?.data))
     },[])
+
   return (
     <div>
       <Head>
@@ -22,6 +26,7 @@ const HomePage: NextPage = () => {
         <Navbar/>
         <Home data={information}/>
         <About data={information}/>
+        <Services/>
     </div>
   )
 }
