@@ -7,6 +7,7 @@ import Home from "../app/components/home-page/home";
 import callApi from "../app/helpers/callApi";
 import About from "../app/components/home-page/about";
 import Services from "../app/components/home-page/services";
+import Experience from "../app/components/home-page/experience";
 
 const HomePage: NextPage = () => {
 
@@ -27,6 +28,7 @@ const HomePage: NextPage = () => {
         <Home data={information}/>
         <About data={information}/>
         <Services/>
+        <Experience/>
     </div>
   )
 }

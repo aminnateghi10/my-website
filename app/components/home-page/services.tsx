@@ -2,9 +2,19 @@ import React, {useContext, useEffect, useState} from "react";
 
 import callApi from "../../helpers/callApi";
 
+interface InterfaceService {
+    id:number,
+    title:string,
+    body:string,
+    image:string,
+    meta:object,
+    created_at:string,
+    updated_at:string,
+}
+
 function Services(){
     let [loading , setLoading] = useState(false)
-    let [services , setServices] = useState()
+    let [services , setServices] = useState<InterfaceService[]>()
 
     useEffect(()=>{
         callApi().get('services')
@@ -25,7 +35,7 @@ function Services(){
                         <div className="row">
 
                             {
-                                services?.map((item) =>(
+                                services?.map((item : InterfaceService) =>(
                                     <div className="col-md-4 mt-5" key={item.id}>
                                         {/* service box */}
                                         <div className={`service-box rounded data-background padding-30 text-center text-light ${item.id % 2===0 ?'shadow-blue': 'shadow-pink'}`}

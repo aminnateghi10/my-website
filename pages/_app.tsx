@@ -1,12 +1,12 @@
 import { Provider } from 'react-redux'
 
 import 'bootstrap/dist/css/bootstrap.css'
-// import '../styles/simple-line-icons.css'
+import '../styles/simple-line-icons.css'
 import '../styles/globals.css'
 import '../styles/app.scss'
 import '../styles/style.css'
 import '../styles/admin-styles.css'
-// import '../styles/animate.css'
+import '../styles/animate.css'
 // import '../styles/rtl.css'
 import 'react-toastify/dist/ReactToastify.css';
 
