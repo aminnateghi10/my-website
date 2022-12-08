@@ -3,19 +3,23 @@ import {FC} from "react";
 
 interface InputProps {
     name: string,
-    label: string,
+    label?: string,
     type?: string,
     inputClassName?: string,
     labelClassName?: string,
-    errorClassName?: string
-    as ?: string
+    errorClassName?: string,
+    as?: string,
+    placeholder?: string,
+    rows?:number|string,
 }
 
-const Input: FC<InputProps> = ({name,label,type='text',inputClassName,labelClassName,errorClassName,as}) => {
+const Input: FC<InputProps> = ({name, label, type = 'text', inputClassName, labelClassName, errorClassName, as,placeholder,rows}) => {
     return (
         <>
-            <label htmlFor={name} className={labelClassName}>{label}</label>
-            <Field as={as} name={name} id={name} type={type} className={inputClassName}/>
+            {
+                label ? <label htmlFor={name} className={labelClassName}>{label}</label> : null
+            }
+            <Field as={as} name={name} id={name} type={type} className={inputClassName} placeholder={placeholder} rows={rows}/>
             <ErrorMessage className={errorClassName} name={name}/>
         </>
     )

@@ -20,6 +20,7 @@ function ClientsReviews() {
     const [clientsReviews, setClientsReviews] = useState<InterfaceClientsReviews[]>()
 
     useEffect(() => {
+        console.log(process.env.ASSETS_URL , 'alij')
         callApi().get('clients').then(res => setClientsReviews(res.data.data))
     }, [])
 
@@ -54,7 +55,7 @@ function ClientsReviews() {
                                     <div className='item'>
                                         <div className="testimonial-item text-center mx-auto">
                                             <div className="thumb mb-3 mx-auto">
-                                                <img src={`https://api-web.a-nateghi.ir/${item.img}`}
+                                                <img src={`${process.env.ASSETS_URL}${item.img}`}
                                                      alt="customer-name"/>
                                             </div>
                                             <h4 className="mt-3 mb-0">{item.name}</h4>

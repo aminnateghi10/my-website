@@ -40,7 +40,7 @@ function Services(){
                                         {/* service box */}
                                         <div className={`service-box rounded data-background padding-30 text-center text-light ${item.id % 2===0 ?'shadow-blue': 'shadow-pink'}`}
                                              data-color="#6C6CE5">
-                                            <img src={`http://localhost:8000//${item.image}`} alt="UI/UX design" />
+                                            <img src={`${process.env.ASSETS_URL}/${item.image}`} alt="UI/UX design" />
                                             <h3 className="mb-3 mt-0">{item.title}</h3>
                                             <p className="mb-0">{item.body}</p>
                                         </div>
