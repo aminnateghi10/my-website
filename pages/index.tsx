@@ -8,6 +8,7 @@ import callApi from "../app/helpers/callApi";
 import About from "../app/components/home-page/about";
 import Services from "../app/components/home-page/services";
 import Experience from "../app/components/home-page/experience";
+import ClientsReviews from "../app/components/home-page/clientsReviews";
 
 const HomePage: NextPage = () => {
 
@@ -29,6 +30,7 @@ const HomePage: NextPage = () => {
         <About data={information}/>
         <Services/>
         <Experience/>
+        <ClientsReviews/>
     </div>
   )
 }

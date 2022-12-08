@@ -9,7 +9,8 @@ import '../styles/admin-styles.css'
 import '../styles/animate.css'
 // import '../styles/rtl.css'
 import 'react-toastify/dist/ReactToastify.css';
-
+import 'swiper/css';
+import 'swiper/css/pagination';
 import type { AppProps } from 'next/app'
 import {NextPage} from "next";
 import {ReactElement, ReactNode} from "react";
