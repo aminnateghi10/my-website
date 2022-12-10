@@ -57,7 +57,7 @@ function Contact({data}: InterfaceProps){
                             validationSchema={SendMassageFormValidationSchema}
                             onSubmit={async (values) => {
                                 console.log(values)
-                                let res = await callApi().post('ticket', values).then(res => {
+                                let res = await callApi().post('tickets', values).then(res => {
                                     console.log(res)
                                     toast.success('Submitted successfully.', {
                                         position: "bottom-right",

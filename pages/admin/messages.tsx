@@ -13,8 +13,6 @@ interface MassageItemProps {
     "email": string,
     "subject": string,
     "body": string,
-    "created_at"?: string,
-    "updated_at"?: string
 }
 
 const Messages: NextPageWithLayout = () => {
@@ -36,15 +34,15 @@ const Messages: NextPageWithLayout = () => {
     };
 
     useEffect(() => {
-        axios.get('https://api.a-nateghi.ir/api/v1/tickets').then(res => setData(res.data.data))
-        callApi().get('ticket').then(res=>  console.log(res))
+        callApi().get('tickets').then(res => setData(res.data.data))
     }, [])
 
     const deleteItem = async (id: number) => {
-        let res = await axios.delete(`https://api.a-nateghi.ir/api/v1/tickets/${id}`);
-        if (res.status == 201) {
+        try {
+            let res = await callApi().delete(`tickets/${id}`);
             let newList = data?.filter((item: MassageItemProps) => item.id != id);
             setData(newList);
+            console.log(newList)
             toast.success('Removed successfully', {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -56,6 +54,8 @@ const Messages: NextPageWithLayout = () => {
                 theme: "light",
             });
             setShow(false);
+        }catch (err){
+            console.log(err)
         }
     }
 
@@ -123,10 +123,6 @@ const Messages: NextPageWithLayout = () => {
                         <tr>
                             <td>Massage</td>
                             <td>{massageView?.body}</td>
-                        </tr>
-                        <tr>
-                            <td>Shipping Time</td>
-                            <td>{massageView?.created_at}</td>
                         </tr>
                     </Table>
                 </Modal.Body>

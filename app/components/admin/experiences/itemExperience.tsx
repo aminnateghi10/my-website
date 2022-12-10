@@ -6,6 +6,7 @@ import callApi from "../../../helpers/callApi";
 import {toast} from "react-toastify";
 import {deleteItemCustomersAndReviews} from "../../../store/customersAndReviews";
 import EditExperiences from "./editExperiences";
+import {deleteItemExperience} from "../../../store/experience";
 
 const ItemExperience = ({item}:any)=>{
 
@@ -21,7 +22,7 @@ const ItemExperience = ({item}:any)=>{
         try {
             let res = await callApi().delete(`experiences/${id}`)
 
-            dispatch(deleteItemCustomersAndReviews(id))
+            dispatch(deleteItemExperience(id))
 
             toast.success('Removed successfully', {
                 position: "bottom-right",

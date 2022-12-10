@@ -12,11 +12,13 @@ import ClientsReviews from "../app/components/home-page/clientsReviews";
 import Contact from "../app/components/home-page/contact";
 import Footer from "../app/components/home-page/footer";
 import Preloader from "../app/components/home-page/preloader";
+import Blog from "../app/components/home-page/blog";
+import axios from "axios";
 
 const HomePage: NextPage = () => {
 
     const [information, setInformation] = useState()
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() => {
         callApi().get('information').then(res => {
@@ -42,6 +44,7 @@ const HomePage: NextPage = () => {
                         <Services/>
                         <Experience/>
                         <ClientsReviews/>
+                        <Blog/>
                         <Contact data={information}/>
                         <Footer/>
                     </div>
@@ -51,4 +54,7 @@ const HomePage: NextPage = () => {
     )
 }
 
+
+
 export default HomePage
+

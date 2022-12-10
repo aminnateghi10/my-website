@@ -22,9 +22,9 @@ const Skills: NextPageWithLayout = () => {
 
     return (
         <div className='p-5'>
-            <h2 className='text-center'>Add New Skill</h2>
+            <h2 className='text-center'>Add Skill</h2>
             <AddSkillForm/>
-            <h2 className='text-center mt-5'>List Of Skills</h2>
+            <h2 className='text-center mt-5'>List Skills</h2>
             <div className='row border mt-1 p-3 justify-content-center justify-content-md-start'>
                 {
                     data?.skills?.map((item: ItemSkills) => (

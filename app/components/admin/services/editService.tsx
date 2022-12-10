@@ -1,6 +1,5 @@
 import {Field, Form, Formik} from "formik";
 import callApi from "../../../helpers/callApi";
-import {ChangeEvent, ChangeEventHandler} from "react";
 import {toast} from "react-toastify";
 import {useDispatch} from "react-redux";
 import {editItemServices} from "../../../store/services";

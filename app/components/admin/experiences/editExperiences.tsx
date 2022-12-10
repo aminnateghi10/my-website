@@ -35,7 +35,7 @@ const EditExperiences = ({item} : any)=>{
                     try {
                         let res = await callApi().post(`experiences/${item.id}`, {...values,'_method':'PUT'}).then(res => {
                             console.log(res)
-                            // dispatch(editItemServices(res.data.data))
+                            dispatch(editItemServices(res.data.data))
                         })
 
                         toast.success('Editing was done successfully', {

@@ -18,7 +18,7 @@ const AddService = ()=>{
 
     return(
         <>
-            <h2 className='text-center mt-5'>Ass Services</h2>
+            <h2 className='text-center mt-5'>Add Service</h2>
             <div className='d-flex justify-content-center'>
                 <Formik
                     initialValues={{

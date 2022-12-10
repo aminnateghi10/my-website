@@ -27,7 +27,7 @@ const InnerLoginForm = ()=>{
                 <Input name='nomineesWinner' label='Nominees Winner' inputClassName='form-control w-auto h-auto' labelClassName='inputEmail4'/>
             </div>
             <div className="form-group col-md-6">
-                <Input as='textarea' name='biography' label='Biography' inputClassName='form-control w-auto h-auto' labelClassName='inputEmail4'/>
+                <Input as='textarea' name='biography' label='Biography' inputClassName='form-control' labelClassName='inputEmail4'/>
             </div>
             <div className='form-group col-md-3'>
                 <button className="btn btn-success text-whit w-100" type="submit">Edit</button>
