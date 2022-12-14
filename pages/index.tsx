@@ -20,6 +20,8 @@ import {
     ServiceInterface,
     SkillInterface
 } from "../app/components/shared/interface";
+import {ArrowSmallUpIcon} from "@heroicons/react/24/solid";
+import {smoothScroll} from "../app/components/shared/smoothScroll";
 
 interface InterfaceProps {
     information: InformationInterface,
@@ -51,6 +53,7 @@ const HomePage = ({information, services, experiences, skills, clients}: Interfa
             <Blog/>
             <Contact information={information}/>
             <Footer information={information}/>
+            <a onClick={smoothScroll} href="#home" id="return-to-top" className='d-flex justify-content-center'><ArrowSmallUpIcon href="#home" style={{width:'25px'}}/></a>
         </div>
     )
 }

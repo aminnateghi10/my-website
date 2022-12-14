@@ -1,18 +1,20 @@
-import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+
+import {NextPageWithLayout} from "../_app";
 import {RootState} from "../../app/store";
 import callApi from "../../app/helpers/callApi";
+import {ClientInterface} from "../../app/components/shared/interface";
+import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import {createCustomersAndReviews} from "../../app/store/customersAndReviews";
 import AddCustomersAndReviews from "../../app/components/admin/customers-and-reviews/addCustomersAndReviews";
 import ItemCustomersAndReviews from "../../app/components/admin/customers-and-reviews/itemCustomersAndReviews";
-import {ClientInterface} from "../../app/components/shared/interface";
 
-const CustomersAndReviews :NextPageWithLayout= ()=>{
+const Client :NextPageWithLayout= ()=>{
 
     const data = useSelector((state: RootState) => state.customersAndReviews)
     const dispatch = useDispatch();
+
     useEffect(() => {
         callApi().get('clients').then(res => dispatch(createCustomersAndReviews(res.data.data)))
     }, [])
@@ -48,6 +50,6 @@ const CustomersAndReviews :NextPageWithLayout= ()=>{
     )
 }
 
-CustomersAndReviews.getLayout=(page)=><UserPanelLayout>{page}</UserPanelLayout>
+Client.getLayout=(page)=><UserPanelLayout>{page}</UserPanelLayout>
 
-export default CustomersAndReviews;
+export default Client;

@@ -3,7 +3,7 @@ import {configureStore} from '@reduxjs/toolkit'
 import User from "./user";
 import Skills from "./skills";
 import Services from './services';
-import CustomersAndReviews from "./customersAndReviews";
+import Client from "./client";
 import Experience from "./experience";
 
 export const store = configureStore({
@@ -12,7 +12,7 @@ export const store = configureStore({
         skills:Skills ,
         services:Services,
         experience:Experience,
-        customersAndReviews:CustomersAndReviews,
+        client:Client,
     }
 })
 
