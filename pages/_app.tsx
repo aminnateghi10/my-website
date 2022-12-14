@@ -1,21 +1,24 @@
-import { Provider } from 'react-redux'
-
-import 'bootstrap/dist/css/bootstrap.css'
-import '../styles/simple-line-icons.css'
-import '../styles/globals.css'
-import '../styles/app.scss'
-import '../styles/style.css'
-import '../styles/admin-styles.css'
-import '../styles/animate.css'
-// import '../styles/rtl.css'
-import 'react-toastify/dist/ReactToastify.css';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import type { AppProps } from 'next/app'
 import {NextPage} from "next";
+import { Provider } from 'react-redux'
+import type { AppProps } from 'next/app'
 import {ReactElement, ReactNode} from "react";
 import {ToastContainer} from "react-toastify";
+
 import {store} from "../app/store/index";
+
+//style
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'react-toastify/dist/ReactToastify.css';
+
+import '../styles/simple-line-icons.css'
+import '../styles/globals.css'
+import '../styles/style.css'
+import '../styles/admin-styles.css'
+// import '../styles/rtl.css'
+
+
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

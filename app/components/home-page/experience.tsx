@@ -1,5 +1,3 @@
-import { useEffect, useState} from "react";
-import callApi from "../../helpers/callApi";
 import {ExperienceInterface} from "../shared/interface";
 
 interface PropsInterface {

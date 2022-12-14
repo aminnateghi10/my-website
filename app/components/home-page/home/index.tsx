@@ -3,11 +3,11 @@ import {FaFacebook, FaGithub, FaInstagram, FaTelegram} from 'react-icons/fa';
 import {InformationInterface} from "../../shared/interface";
 
 interface InterfaceProps {
-    information?: InformationInterface
+    information: InformationInterface
 }
 
 
-function Home({information}:InterfaceProps) {
+function Home({information}: InterfaceProps) {
 
     return (
         <>
@@ -16,7 +16,8 @@ function Home({information}:InterfaceProps) {
                     {/* intro */}
                     <div className="intro">
                         {/* avatar image */}
-                        <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4" alt={information?.name}/>
+                        <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4"
+                             alt={information?.name}/>
                         {/* info */}
                         <h1 className="mb-2 mt-0">{information?.name}</h1>
                         <span>{information?.jab}</span>
@@ -25,11 +26,11 @@ function Home({information}:InterfaceProps) {
                             {
                                 information?.telegram ?
                                     <li className="list-inline-item">
-                                    <a href={`https://telegram.me/${information?.telegram}`}>
+                                        <a href={`https://telegram.me/${information?.telegram}`}>
                                             <FaTelegram/>
                                         </a>
                                     </li>
-                                    :<li></li>
+                                    : <li></li>
                             }
                             {
                                 information?.instagram ?
@@ -38,7 +39,7 @@ function Home({information}:InterfaceProps) {
                                             <FaInstagram/>
                                         </a>
                                     </li>
-                                    :<li></li>
+                                    : <li></li>
                             }
                             {
                                 information?.facebook ?
@@ -47,7 +48,7 @@ function Home({information}:InterfaceProps) {
                                             <FaFacebook/>
                                         </a>
                                     </li>
-                                    :<li></li>
+                                    : <li></li>
                             }
                             {
                                 information?.github ?
@@ -56,7 +57,7 @@ function Home({information}:InterfaceProps) {
                                             <FaGithub/>
                                         </a>
                                     </li>
-                                    :<li></li>
+                                    : <li></li>
                             }
                         </ul>
                         {/* buttons */}

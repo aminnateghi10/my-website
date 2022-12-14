@@ -25,7 +25,7 @@ const InformationFormValidationSchema = yup.object().shape({
     biography: yup.string().required(),
 })
 
-const InformationForm = ({data})=> {
+const InformationForm = ({data}:InformationFormProps)=> {
     return (
         <Formik
             validationSchema={InformationFormValidationSchema}

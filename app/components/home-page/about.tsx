@@ -16,7 +16,8 @@ const About = ({information, skills}: InterfaceProps) => {
                     <div className="col-md-3">
                         <div className="text-center text-md-left">
                             {/* avatar image */}
-                            <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4" alt={information?.name}/>
+                            <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4"
+                                 alt={information?.name}/>
                         </div>
                         <div className="spacer d-md-none d-lg-none" data-height={30}/>
                     </div>
@@ -27,7 +28,8 @@ const About = ({information, skills}: InterfaceProps) => {
                                     {/* about text */}
                                     <p>{information?.biography}</p>
                                     <div className="mt-3">
-                                        <a href={`${process.env.ASSETS_URL}${information?.resume_file}`} className="btn btn-default p-3">Download CV</a>
+                                        <a href={`${process.env.ASSETS_URL}${information?.resume_file}`}
+                                           className="btn btn-default p-3">Download CV</a>
                                     </div>
                                     <div className="spacer d-md-none d-lg-none"/>
                                 </div>

@@ -56,3 +56,11 @@ export interface SkillInterface {
     created_at ?: string,
     updated_at ?: string
 }
+
+export interface ticketInterface {
+    "id"?: number,
+    "name": string,
+    "email": string,
+    "subject": string,
+    "body": string,
+}

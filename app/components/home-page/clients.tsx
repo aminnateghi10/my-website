@@ -7,7 +7,7 @@ interface PropsInterface {
     clients: ClientInterface[],
 }
 
-const ClientsReviews = ({clients}: PropsInterface) => {
+const Clients = ({clients}: PropsInterface) => {
 
     return (
         <section id="testimonials">
@@ -45,7 +45,6 @@ const ClientsReviews = ({clients}: PropsInterface) => {
                         }
                     </Swiper>
                     {/* testimonial item */}
-
                 </div>
                 <div className="row">
                     <div className="col-md-3 col-6">
@@ -135,4 +134,4 @@ const ClientsReviews = ({clients}: PropsInterface) => {
     )
 }
 
-export default ClientsReviews;
+export default Clients;
