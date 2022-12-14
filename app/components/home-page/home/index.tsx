@@ -6,8 +6,7 @@ interface InterfaceProps {
     information: InformationInterface
 }
 
-
-function Home({information}: InterfaceProps) {
+const Home = ({information}: InterfaceProps) => {
 
     return (
         <>
@@ -24,40 +23,36 @@ function Home({information}: InterfaceProps) {
                         {/* social icons */}
                         <ul className="social-icons light list-inline mb-0 mt-4">
                             {
-                                information?.telegram ?
-                                    <li className="list-inline-item">
-                                        <a href={`https://telegram.me/${information?.telegram}`}>
-                                            <FaTelegram/>
-                                        </a>
-                                    </li>
-                                    : <li></li>
+                                information?.telegram &&
+                                <li className="list-inline-item">
+                                    <a href={`https://telegram.me/${information?.telegram}`}>
+                                        <FaTelegram/>
+                                    </a>
+                                </li>
                             }
                             {
-                                information?.instagram ?
-                                    <li className="list-inline-item">
-                                        <a href={`https://instagram.com/${information?.instagram}`}>
-                                            <FaInstagram/>
-                                        </a>
-                                    </li>
-                                    : <li></li>
+                                information?.instagram &&
+                                <li className="list-inline-item">
+                                    <a href={`https://instagram.com/${information?.instagram}`}>
+                                        <FaInstagram/>
+                                    </a>
+                                </li>
                             }
                             {
-                                information?.facebook ?
-                                    <li className="list-inline-item">
-                                        <a href={`https://www.facebook.com/${information?.facebook}`}>
-                                            <FaFacebook/>
-                                        </a>
-                                    </li>
-                                    : <li></li>
+                                information.facebook &&
+                                <li className="list-inline-item">
+                                    <a href={`https://www.facebook.com/${information?.facebook}`}>
+                                        <FaFacebook/>
+                                    </a>
+                                </li>
                             }
                             {
-                                information?.github ?
-                                    <li className="list-inline-item">
-                                        <a href={`https://github.com/${information?.github}`}>
-                                            <FaGithub/>
-                                        </a>
-                                    </li>
-                                    : <li></li>
+                                information.github &&
+                                <li className="list-inline-item">
+                                    <a href={`https://github.com/${information?.github}`}>
+                                        <FaGithub/>
+                                    </a>
+                                </li>
                             }
                         </ul>
                         {/* buttons */}

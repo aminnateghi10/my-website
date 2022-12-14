@@ -1,5 +1,3 @@
-import * as yup from "yup";
-
 import {InformationInterface} from "../../shared/interface";
 import ContactForm from "../../../form/home-page/contactForm";
 
@@ -8,12 +6,6 @@ interface PropsInterface {
 }
 
 const Contact = ({information}: PropsInterface) => {
-    const SendMassageFormValidationSchema = yup.object().shape({
-        name: yup.string().required(),
-        email: yup.string().required().email(),
-        subject: yup.string().required(),
-        body: yup.string().required(),
-    });
 
     return (
         <>

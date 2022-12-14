@@ -24,7 +24,6 @@ const Services = ({services}: PropsInterface) => {
                                     <p className="mb-0">{item.body}</p>
                                 </div>
                                 <div className="spacer d-md-none d-lg-none" data-height={30}/>
-
                             </div>
                         ))
                     }

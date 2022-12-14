@@ -34,7 +34,7 @@ const HomePage = ({information, services, experiences, skills, clients}: Interfa
         <div>
             <Head>
                 <title>{information?.name}</title>
-                <meta name="keywords" content={information?.name}/>
+                <meta name="keywords" content={`${information?.name},${information?.jab},${information?.instagram},`}/>
                 <meta name="owner" content={information?.name}/>
                 <meta name="description" content={information?.biography}/>
                 <meta name="subject" content={`${information?.name} is personal website`}/>

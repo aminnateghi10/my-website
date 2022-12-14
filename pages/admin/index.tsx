@@ -5,7 +5,7 @@ import {removeLoginToken} from "../../app/helpers/auth";
 const AdminPanel :NextPageWithLayout= ()=>{
     return(
         <>
-            sdfasfd
+            <h1 className='text-danger' onClick={removeLoginToken}>logout</h1>
         </>
     )
 }

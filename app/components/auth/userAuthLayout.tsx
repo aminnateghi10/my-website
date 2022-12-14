@@ -15,7 +15,6 @@ const UserAuthLayout = ({children}: Props) => {
         Router.push('/admin')
         return null
     }
-
     return <>{children}</>
 }
 

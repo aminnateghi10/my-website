@@ -19,7 +19,6 @@ const Experience = ({experiences}:PropsInterface)=>{
                         {/* timeline wrapper */}
                         <div className="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
                             {/* timeline item */}
-
                             {
                                 EducationalExperiences === null ? null :
                                 EducationalExperiences?.map((item)=>(

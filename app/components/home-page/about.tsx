@@ -79,18 +79,23 @@ const About = ({information, skills}: InterfaceProps) => {
                     </div>
                     <div className="col-md-3 col-sm-6 mt-2">
                         <div className="fact-item"><span className="icon icon-people"/>
-                            <div className="details"><h3 className="mb-0 mt-0 number"><em
-                                className="count">{information?.satisfiedClients}</em></h3><p className="mb-0">Satisfied
-                                clients</p>
+                            <div className="details">
+                                <h3 className="mb-0 mt-0 number">
+                                    <em className="count">{information?.satisfiedClients}</em>
+                                </h3>
+                                <p className="mb-0">Satisfied clients</p>
                             </div>
                         </div>
                         <div className="spacer d-md-none d-lg-none" data-height={30}/>
                     </div>
                     <div className="col-md-3 col-sm-6 mt-2">
                         <div className="fact-item"><span className="icon icon-badge"/>
-                            <div className="details"><h3 className="mb-0 mt-0 number"><em
-                                className="count">{information?.nomineesWinner}</em></h3><p className="mb-0">Nominees
-                                winner</p></div>
+                            <div className="details">
+                                <h3 className="mb-0 mt-0 number">
+                                    <em className="count">{information?.nomineesWinner}</em>
+                                </h3>
+                                <p className="mb-0">Nominees winner</p>
+                            </div>
                         </div>
                     </div>
                 </div>
