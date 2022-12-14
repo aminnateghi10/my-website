@@ -1,20 +1,13 @@
 import ParallaxLayers from "./parallaxLayers";
+import {FaFacebook, FaGithub, FaInstagram, FaTelegram} from 'react-icons/fa';
+import {InformationInterface} from "../../shared/interface";
 
 interface InterfaceProps {
-    data?: {
-        name: string,
-        email: string,
-        jab: string,
-        projectsCompleted: string,
-        cupOfCoffee: string,
-        satisfiedClients: string,
-        nomineesWinner: string,
-        biography: string
-    }
+    information?: InformationInterface
 }
 
 
-function Home({data}: InterfaceProps) {
+function Home({information}:InterfaceProps) {
 
     return (
         <>
@@ -23,37 +16,48 @@ function Home({data}: InterfaceProps) {
                     {/* intro */}
                     <div className="intro">
                         {/* avatar image */}
-                        <img src='https://a-nateghi.ir/assets/favicon.aa16bbfe.png' className="mb-4"/>
+                        <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4" alt={information?.name}/>
                         {/* info */}
-                        <h1 className="mb-2 mt-0">{data?.name}</h1>
-                        <span>{data?.jab}</span>
+                        <h1 className="mb-2 mt-0">{information?.name}</h1>
+                        <span>{information?.jab}</span>
                         {/* social icons */}
                         <ul className="social-icons light list-inline mb-0 mt-4">
-                            <li className="list-inline-item">
-                                <a href="#">
-                                    <i className="fab fa-instagram"/>
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a href="#">
-                                    <i className="fab fa-twitter"/>
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a href="#">
-                                    <i className="fab fa-behance"/>
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a href="#">
-                                    <i className="fab fa-dribbble"/>
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a href="#">
-                                    <i className="fab fa-pinterest-p"/>
-                                </a>
-                            </li>
+                            {
+                                information?.telegram ?
+                                    <li className="list-inline-item">
+                                    <a href={`https://telegram.me/${information?.telegram}`}>
+                                            <FaTelegram/>
+                                        </a>
+                                    </li>
+                                    :<li></li>
+                            }
+                            {
+                                information?.instagram ?
+                                    <li className="list-inline-item">
+                                        <a href={`https://instagram.com/${information?.instagram}`}>
+                                            <FaInstagram/>
+                                        </a>
+                                    </li>
+                                    :<li></li>
+                            }
+                            {
+                                information?.facebook ?
+                                    <li className="list-inline-item">
+                                        <a href={`https://www.facebook.com/${information?.facebook}`}>
+                                            <FaFacebook/>
+                                        </a>
+                                    </li>
+                                    :<li></li>
+                            }
+                            {
+                                information?.github ?
+                                    <li className="list-inline-item">
+                                        <a href={`https://github.com/${information?.github}`}>
+                                            <FaGithub/>
+                                        </a>
+                                    </li>
+                                    :<li></li>
+                            }
                         </ul>
                         {/* buttons */}
                         <div className="mt-4">

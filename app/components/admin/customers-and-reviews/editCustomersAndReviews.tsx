@@ -1,9 +1,11 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import callApi from "../../../helpers/callApi";
-import {ChangeEvent, ChangeEventHandler} from "react";
+
 import {toast} from "react-toastify";
 import * as yup from "yup";
 import Input from "../../shared/form/input";
+import {useDispatch} from "react-redux";
+import {editItemCustomersAndReviews} from "../../../store/customersAndReviews";
 
 const EditCustomersAndReviews = ({item}:any)=>{
 
@@ -13,6 +15,8 @@ const EditCustomersAndReviews = ({item}:any)=>{
         body: yup.string().required(),
         img: yup.mixed().required(),
     });
+
+    const dispatch = useDispatch();
 
     return(
         <Formik
@@ -31,9 +35,10 @@ const EditCustomersAndReviews = ({item}:any)=>{
                 data.append('job', values.job);
                 data.append('body', values.body);
                 data.append('_method', 'PUT');
-                let res = await callApi().post(`clients/${item.id}`, data).then(res => {
-
-                    toast.success('Changed successfully', {
+                try {
+                    let res = await callApi().post(`clients/${item.id}`, data);
+                    dispatch(editItemCustomersAndReviews(res.data.data));
+                    toast.success('Editing was done successfully', {
                         position: "bottom-right",
                         autoClose: 2000,
                         hideProgressBar: false,
@@ -43,9 +48,11 @@ const EditCustomersAndReviews = ({item}:any)=>{
                         progress: undefined,
                         theme: "light",
                     })
-                })
+                }catch (err){
+                    console.log(err)
+                }
 
-            }}
+                }}
         >
             {(formProps) => (
                 <Form className="needs-validation text-left">

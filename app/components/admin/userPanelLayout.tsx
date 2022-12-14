@@ -69,8 +69,7 @@ const UserPanelLayout = ({children}: Props) => {
                 {/* footer area start*/}
                 <footer>
                     <div className="footer-area mt-5">
-                        <p>© Copyright 2018. All right reserved. Template by <a
-                            href="https://colorlib.com/wp/">Colorlib</a>.
+                        <p>Admin panel <a href="https://a-nateghi.ir/">(Made by Amin Nateghi)</a>
                         </p>
                     </div>
                 </footer>

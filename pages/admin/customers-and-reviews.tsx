@@ -1,14 +1,13 @@
 import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../app/store";
 import callApi from "../../app/helpers/callApi";
-import ItemService from "../../app/components/admin/services/itemService";
 import {createCustomersAndReviews} from "../../app/store/customersAndReviews";
 import AddCustomersAndReviews from "../../app/components/admin/customers-and-reviews/addCustomersAndReviews";
-import {InterfaceItemCustomersAndReviews} from "../../app/contracts/customersAndReviews";
 import ItemCustomersAndReviews from "../../app/components/admin/customers-and-reviews/itemCustomersAndReviews";
+import {ClientInterface} from "../../app/components/shared/interface";
 
 const CustomersAndReviews :NextPageWithLayout= ()=>{
 
@@ -34,7 +33,7 @@ const CustomersAndReviews :NextPageWithLayout= ()=>{
                 </thead>
                 <tbody>
                 {
-                    data?.customersAndReviews?.map((item : InterfaceItemCustomersAndReviews) => (
+                    data?.customersAndReviews?.map((item : ClientInterface) => (
                             <tr key={item.id}>
                                 <ItemCustomersAndReviews item={item}/>
                             </tr>

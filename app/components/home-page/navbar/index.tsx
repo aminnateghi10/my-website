@@ -4,7 +4,6 @@ import ListItem from "./listItem";
 function Navbar() {
     const [toggle, setToggle] = useState<boolean>()
 
-
     const navbarList = [
         {label: 'Home', href: '#home'},
         {label: 'About', href: '#about'},
@@ -12,7 +11,7 @@ function Navbar() {
         {label: 'Experience', href: '#experience'},
         {label: 'Works', href: '#works'},
         {label: 'Contact', href: '#contact'},
-    ]
+    ];
 
     return (
         <header className="desktop-header-3 light fixed-top">

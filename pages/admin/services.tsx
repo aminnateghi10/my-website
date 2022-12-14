@@ -4,11 +4,11 @@ import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import callApi from "../../app/helpers/callApi";
 import AddService from "../../app/components/admin/services/addService";
-import {ServiceInterface} from "../../app/contracts/services";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../app/store";
 import {createServices} from "../../app/store/services";
 import ItemService from "../../app/components/admin/services/itemService";
+import {ServiceInterface} from "../../app/components/shared/interface";
 
 
 const Services: NextPageWithLayout = () => {

@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "./index";
-import {ServiceInterface} from "../contracts/services";
+import {ServiceInterface} from "../components/shared/interface";
 
 
 interface ServicesState {

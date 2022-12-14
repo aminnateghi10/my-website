@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "./index";
-import {InterfaceItemCustomersAndReviews} from "../contracts/customersAndReviews";
+import {ClientInterface} from "../components/shared/interface";
 
 
 interface CustomersAndReviewsState {
@@ -15,11 +15,11 @@ export const CustomersAndReviews = createSlice({
     name: 'customersAndReviews',
     initialState,
     reducers: {
-        createCustomersAndReviews: (state, action: PayloadAction<InterfaceItemCustomersAndReviews | undefined>) => {
+        createCustomersAndReviews: (state, action: PayloadAction<ClientInterface | undefined>) => {
             state.customersAndReviews = action.payload
         },
-        editItemCustomersAndReviews: (state, action: PayloadAction<InterfaceItemCustomersAndReviews>) => {
-            let newState = state.customersAndReviews.map((element : InterfaceItemCustomersAndReviews)=>{
+        editItemCustomersAndReviews: (state, action: PayloadAction<ClientInterface>) => {
+            let newState = state.customersAndReviews.map((element : ClientInterface)=>{
                 if (element.id === action.payload.id){
                     return  {...element , ...action.payload}
                 }else return element
@@ -27,7 +27,7 @@ export const CustomersAndReviews = createSlice({
             state.customersAndReviews = newState;
         },
         deleteItemCustomersAndReviews: (state, action: PayloadAction<number>) => {
-            let newState = state.customersAndReviews?.filter((item: InterfaceItemCustomersAndReviews) => item.id != action.payload);
+            let newState = state.customersAndReviews?.filter((item: ClientInterface) => item.id != action.payload);
             state.customersAndReviews = newState;
         },
         addItemCustomersAndReviews: (state, action: PayloadAction<any>) => {

@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {Button, Modal, Table} from "react-bootstrap";
 import {toast} from "react-toastify";
-import axios from "axios";
 
 import {NextPageWithLayout} from "../_app";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";

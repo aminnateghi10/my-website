@@ -4,10 +4,10 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../app/store";
 import callApi from "../../app/helpers/callApi";
-import {InterfaceItemCustomersAndReviews} from "../../app/contracts/customersAndReviews";
 import {createExperience} from "../../app/store/experience";
 import AddExperiences from "../../app/components/admin/experiences/addExperiences";
 import ItemExperience from "../../app/components/admin/experiences/itemExperience";
+import {ExperienceInterface} from "../../app/components/shared/interface";
 
 const Experiences :NextPageWithLayout= ()=>{
 
@@ -34,7 +34,7 @@ const Experiences :NextPageWithLayout= ()=>{
                 </thead>
                 <tbody>
                 {
-                    data?.experience?.map((item : InterfaceItemCustomersAndReviews) => (
+                    data?.experience?.map((item : ExperienceInterface) => (
                             <tr key={item.id}>
                                 <ItemExperience item={item}/>
                             </tr>

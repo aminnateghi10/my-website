@@ -1,10 +1,13 @@
-import React from "react";
+import {InformationInterface} from "../shared/interface";
 
-function Footer(){
-    return(
+interface InterfaceProps {
+    information: InformationInterface,
+}
+const Footer = ({information}:InterfaceProps) => {
+    return (
         <footer className="footer light">
             <div className="container">
-                <span className="copyright"> Amin Nateghi.</span>
+                <span className="copyright">{information.name}</span>
             </div>
         </footer>
     )

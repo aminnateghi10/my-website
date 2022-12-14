@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "./index";
-import {InterfaceItemExperience} from "../contracts/experience";
+import {ExperienceInterface} from "../components/shared/interface";
 
 
 interface ServicesState {
@@ -15,12 +15,12 @@ export const Experience = createSlice({
     name: 'services',
     initialState,
     reducers: {
-        createExperience: (state, action: PayloadAction<InterfaceItemExperience | undefined>) => {
+        createExperience: (state, action: PayloadAction<ExperienceInterface | undefined>) => {
             state.experience = action.payload
         },
-        editItemExperience: (state, action: PayloadAction<InterfaceItemExperience>) => {
+        editItemExperience: (state, action: PayloadAction<ExperienceInterface>) => {
             console.log(action.payload , 'amin')
-            let newState = state.experience.map((element : InterfaceItemExperience)=>{
+            let newState = state.experience.map((element : ExperienceInterface)=>{
                 if (element.id === action.payload.id){
                     return  {...element , ...action.payload}
                 }else return element
@@ -28,7 +28,7 @@ export const Experience = createSlice({
             state.experience = newState;
         },
         deleteItemExperience: (state, action: PayloadAction<number>) => {
-            let newState = state.experience?.filter((item: InterfaceItemExperience) => item.id != action.payload);
+            let newState = state.experience?.filter((item: ExperienceInterface) => item.id != action.payload);
             state.experience = newState;
         },
         addItemExperience: (state, action: PayloadAction<any>) => {

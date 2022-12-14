@@ -1,37 +1,13 @@
-import React, {useEffect, useState} from "react";
 import {Pagination} from "swiper";
 import {Swiper, SwiperSlide} from 'swiper/react';
 
-import callApi from "../../helpers/callApi";
+import {ClientInterface} from "../shared/interface";
 
-interface InterfaceClientsReviews {
-    "id": number,
-    "name": string,
-    "job": string,
-    "body": string,
-    "img": string,
-    "meta": string,
-    "created_at": string,
-    "updated_at": string
+interface PropsInterface {
+    clients: ClientInterface[],
 }
 
-function ClientsReviews() {
-
-    const [clientsReviews, setClientsReviews] = useState<InterfaceClientsReviews[]>()
-
-    useEffect(() => {
-        console.log(process.env.ASSETS_URL , 'alij')
-        callApi().get('clients').then(res => setClientsReviews(res.data.data))
-    }, [])
-
-    const settings = {
-        dots: true,
-        arrows: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    }
+const ClientsReviews = ({clients}: PropsInterface) => {
 
     return (
         <section id="testimonials">
@@ -45,14 +21,12 @@ function ClientsReviews() {
                         modules={[Pagination]}
                         spaceBetween={50}
                         slidesPerView={1}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
                         pagination={{clickable: true}}
                     >
                         {
-                            clientsReviews?.map(item => (
+                            clients?.map((item) => (
                                 <SwiperSlide key={item.id}>
-                                    <div className='item'>
+                                    <div className='item pb-3'>
                                         <div className="testimonial-item text-center mx-auto">
                                             <div className="thumb mb-3 mx-auto">
                                                 <img src={`${process.env.ASSETS_URL}${item.img}`}
