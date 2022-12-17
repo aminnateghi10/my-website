@@ -11,13 +11,9 @@ interface Props {
 const UserPanelLayout = ({children}: Props) => {
     const [open , setOpen] = useState(true );
     const {user , error , loading} = useAuth();
-
-    if (loading == true) <h2>loading...</h2>
-    if (error != undefined) {
-        Router.push('/auth/login')
-    }
-
-     return (
+    if (loading == true)return <h2>loading...</h2>
+    if (error) Router.push('/auth/login')
+    if (user) return (
         <div>
             {/* preloader area start */}
             {/*<div id="preloader">*/}
@@ -71,6 +67,8 @@ const UserPanelLayout = ({children}: Props) => {
             {/* page container area end */}
         </div>
     )
+
+    return null
 }
 
 export default UserPanelLayout;

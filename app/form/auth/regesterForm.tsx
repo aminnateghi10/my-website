@@ -1,17 +1,18 @@
 import {withFormik} from "formik";
 import * as yup from 'yup'
 
+import callApi from "../../helpers/callApi";
 import {RegisterFormValuesInterface} from "../../contracts/auth";
 import InnerRegisterForm from "../../components/auth/innerRegisterForm";
-import callApi from "../../helpers/callApi";
 
-interface RegisterFormProps{
+interface RegisterFormProps {
 }
 
-const registerFormValidationSchema =yup.object().shape({
+const registerFormValidationSchema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().required().email(),
     password: yup.string().required().min(8).max(12),
+    password_confirmation:yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
 })
 
 const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>({
@@ -19,11 +20,17 @@ const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>(
         name: '',
         email: '',
         password: '',
-    }) ,
+        password_confirmation:'',
+    }),
     validationSchema: registerFormValidationSchema,
     handleSubmit: async (values) => {
-        let res = await callApi().post('auth/register',values);
-        console.log(res , 'amin')
+        console.log(values)
+        try {
+        let res = await callApi().post('register', values);
+            console.log(res)
+        }catch (err) {
+            console.log(err)
+        }
     }
 })(InnerRegisterForm)
 

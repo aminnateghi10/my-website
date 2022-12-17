@@ -9,7 +9,7 @@ interface ServicesState {
 }
 
 const initialState: ServicesState = {
-    services: [] ,
+    services: [],
 }
 
 export const Services = createSlice({
@@ -20,11 +20,11 @@ export const Services = createSlice({
             state.services = action.payload
         },
         editItemServices: (state, action: PayloadAction<ServiceInterface>) => {
-            console.log(action.payload , 'amin')
-            let newState = state.services.map((element : ServiceInterface)=>{
-                if (element.id === action.payload.id){
-                    return  {...element , ...action.payload}
-                }else return element
+            console.log(action.payload, 'amin')
+            let newState = state.services.map((element: ServiceInterface) => {
+                if (element.id === action.payload.id) {
+                    return {...element, ...action.payload}
+                } else return element
             })
             state.services = newState;
         },
@@ -38,6 +38,6 @@ export const Services = createSlice({
     }
 });
 
-export const { createServices , deleteItemServices , editItemServices , addItemServices} = Services.actions;
+export const {createServices, deleteItemServices, editItemServices, addItemServices} = Services.actions;
 export const selectUser = (state: RootState) => state.skills;
 export default Services.reducer;

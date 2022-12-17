@@ -9,7 +9,7 @@ interface ServicesState {
 }
 
 const initialState: ServicesState = {
-    experience: [] ,
+    experience: [],
 }
 
 export const Experience = createSlice({
@@ -20,11 +20,11 @@ export const Experience = createSlice({
             state.experience = action.payload
         },
         editItemExperience: (state, action: PayloadAction<ExperienceInterface>) => {
-            console.log(action.payload , 'amin')
-            let newState = state.experience.map((element : ExperienceInterface)=>{
-                if (element.id === action.payload.id){
-                    return  {...element , ...action.payload}
-                }else return element
+            console.log(action.payload, 'amin')
+            let newState = state.experience.map((element: ExperienceInterface) => {
+                if (element.id === action.payload.id) {
+                    return {...element, ...action.payload}
+                } else return element
             })
             state.experience = newState;
         },
@@ -38,6 +38,6 @@ export const Experience = createSlice({
     }
 });
 
-export const { createExperience , deleteItemExperience , editItemExperience , addItemExperience} = Experience.actions;
+export const {createExperience, deleteItemExperience, editItemExperience, addItemExperience} = Experience.actions;
 export const selectUser = (state: RootState) => state.experience;
 export default Experience.reducer;

@@ -8,11 +8,11 @@ import Experience from "./experience";
 
 export const store = configureStore({
     reducer: {
-        user: User ,
-        skills:Skills ,
-        services:Services,
-        experience:Experience,
-        client:Client,
+        user: User,
+        skills: Skills,
+        services: Services,
+        experience: Experience,
+        client: Client,
     }
 })
 

@@ -9,7 +9,7 @@ interface SkillsState {
 }
 
 const initialState: SkillsState = {
-    skills: [] ,
+    skills: [],
 }
 
 export const Skills = createSlice({
@@ -20,10 +20,10 @@ export const Skills = createSlice({
             state.skills = action.payload
         },
         editItemSkills: (state, action: PayloadAction<SkillInterface>) => {
-            let newState = state.skills.map((element : SkillInterface)=>{
-                if (element.id === action.payload.id){
-                    return  {...element , ...action.payload}
-                }else return element
+            let newState = state.skills.map((element: SkillInterface) => {
+                if (element.id === action.payload.id) {
+                    return {...element, ...action.payload}
+                } else return element
             })
             state.skills = newState;
         },
@@ -37,6 +37,6 @@ export const Skills = createSlice({
     }
 });
 
-export const { createSkills , deleteItemSkills , editItemSkills , addItemSkills} = Skills.actions;
+export const {createSkills, deleteItemSkills, editItemSkills, addItemSkills} = Skills.actions;
 export const selectUser = (state: RootState) => state.skills;
 export default Skills.reducer;

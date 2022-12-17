@@ -11,7 +11,6 @@ interface InformationFormProps {
     data: InformationInterface
 }
 
-
 const InformationFormValidationSchema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().required().email(),

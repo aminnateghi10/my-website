@@ -16,6 +16,9 @@ const InnerRegisterForm = ()=>{
             <div className="form-outline mb-4">
                 <Input name='password' label='Password' inputClassName='form-control form-control-lg' labelClassName='form-label'/>
             </div>
+            <div className="form-outline mb-4">
+                <Input name='password_confirmation' label='Password confirmation' inputClassName='form-control form-control-lg' labelClassName='form-label'/>
+            </div>
             <button className="btn btn-primary btn-lg btn-block py-4" type="submit">register</button>
             <hr className="my-4" />
             <Link href='/auth/login'>login</Link>

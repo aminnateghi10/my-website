@@ -1,4 +1,5 @@
 import {toast} from "react-toastify";
+import Router from "next/router";
 
 const removeLoginToken = async () => {
     try {
@@ -8,6 +9,7 @@ const removeLoginToken = async () => {
                 "Content-Type": "application/json"
             },
         })
+        Router.push('auth/login')
         toast.success('You are logged out', {
             position: "top-right",
             autoClose: 2000,

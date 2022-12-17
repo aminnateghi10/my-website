@@ -6,7 +6,7 @@ const useAuth = () => {
     const {data, error} = useSWR('user_me', () => {
         return callApi().post('auth');
     })
-    return {user: data?.data.data, error, loading: !data && !error}
+    return {user: data, error, loading: !data && !error}
 }
 
 export default useAuth;

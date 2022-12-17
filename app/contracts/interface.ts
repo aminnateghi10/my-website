@@ -58,7 +58,7 @@ export interface SkillInterface {
 }
 
 export interface TicketInterface {
-    "id": number,
+    "id"?: number,
     "name": string,
     "email": string,
     "subject": string,
