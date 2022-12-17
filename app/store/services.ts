@@ -1,21 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
-import {RootState} from "./index";
-import {ServiceInterface} from "../components/shared/interface";
 
+import {RootState} from "./index";
+import {ServiceInterface} from "../contracts/interface";
 
 interface ServicesState {
-    services?: any,
+    services: ServiceInterface[],
 }
 
 const initialState: ServicesState = {
-    services: undefined ,
+    services: [] ,
 }
+
 export const Services = createSlice({
     name: 'services',
     initialState,
     reducers: {
-        createServices: (state, action: PayloadAction<ServiceInterface | undefined>) => {
+        createServices: (state, action: PayloadAction<ServiceInterface[] | []>) => {
             state.services = action.payload
         },
         editItemServices: (state, action: PayloadAction<ServiceInterface>) => {
@@ -31,14 +32,12 @@ export const Services = createSlice({
             let newState = state.services?.filter((item: ServiceInterface) => item.id != action.payload);
             state.services = newState;
         },
-        addItemServices: (state, action: PayloadAction<any>) => {
+        addItemServices: (state, action: PayloadAction<ServiceInterface>) => {
             state.services.push(action.payload)
         },
     }
 });
 
 export const { createServices , deleteItemServices , editItemServices , addItemServices} = Services.actions;
-
 export const selectUser = (state: RootState) => state.skills;
-
 export default Services.reducer;

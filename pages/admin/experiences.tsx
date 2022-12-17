@@ -1,16 +1,15 @@
-import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/admin/userPanelLayout";
+import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+
+import {NextPageWithLayout} from "../_app";
 import {RootState} from "../../app/store";
 import callApi from "../../app/helpers/callApi";
+import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import {createExperience} from "../../app/store/experience";
 import AddExperiences from "../../app/components/admin/experiences/addExperiences";
 import ItemExperience from "../../app/components/admin/experiences/itemExperience";
-import {ExperienceInterface} from "../../app/components/shared/interface";
-import {useEffect} from "react";
 
-const Experiences :NextPageWithLayout= ()=>{
-
+const Experiences: NextPageWithLayout = () => {
     const data = useSelector((state: RootState) => state.experience);
     const dispatch = useDispatch();
 
@@ -18,7 +17,6 @@ const Experiences :NextPageWithLayout= ()=>{
         callApi().get('experiences').then(res => dispatch(createExperience(res.data.data)))
     }, [])
 
-    console.log(data)
     return (
         <div className='p-5'>
             <h2 className='text-center mt-5'>Add Experience</h2>
@@ -36,7 +34,7 @@ const Experiences :NextPageWithLayout= ()=>{
                 </thead>
                 <tbody>
                 {
-                    data?.experience?.map((item : ExperienceInterface) => (
+                    data?.experience?.map((item) => (
                             <tr key={item.id}>
                                 <ItemExperience item={item}/>
                             </tr>
@@ -45,12 +43,10 @@ const Experiences :NextPageWithLayout= ()=>{
                 }
                 </tbody>
             </table>
-
-
         </div>
     )
 }
 
-Experiences.getLayout=(page)=><UserPanelLayout>{page}</UserPanelLayout>
+Experiences.getLayout = (page) => <UserPanelLayout>{page}</UserPanelLayout>
 
 export default Experiences;

@@ -12,6 +12,9 @@ import Contact from "../app/components/home-page/contact/contact";
 import Footer from "../app/components/home-page/footer";
 import Blog from "../app/components/home-page/blog";
 
+import {ArrowSmallUpIcon} from "@heroicons/react/24/solid";
+import {smoothScroll} from "../app/components/shared/smoothScroll";
+
 //interface
 import {
     ExperienceInterface,
@@ -19,9 +22,7 @@ import {
     ClientInterface,
     ServiceInterface,
     SkillInterface
-} from "../app/components/shared/interface";
-import {ArrowSmallUpIcon} from "@heroicons/react/24/solid";
-import {smoothScroll} from "../app/components/shared/smoothScroll";
+} from "../app/contracts/interface";
 
 interface InterfaceProps {
     information: InformationInterface,
@@ -53,7 +54,8 @@ const HomePage = ({information, services, experiences, skills, clients}: Interfa
             <Blog/>
             <Contact information={information}/>
             <Footer information={information}/>
-            <a onClick={smoothScroll} href="#home" id="return-to-top" className='d-flex justify-content-center'><ArrowSmallUpIcon href="#home" style={{width:'25px'}}/></a>
+            <a onClick={smoothScroll} href="#home" id="return-to-top"
+               className='d-flex justify-content-center'><ArrowSmallUpIcon href="#home" style={{width: '25px'}}/></a>
         </div>
     )
 }

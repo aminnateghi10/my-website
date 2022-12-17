@@ -4,8 +4,8 @@ import {Button, Modal, Table} from "react-bootstrap";
 
 import callApi from "../../../helpers/callApi";
 import {toast} from "react-toastify";
-import EditCustomersAndReviews from "./editCustomersAndReviews";
-import {deleteItemCustomersAndReviews} from "../../../store/customersAndReviews";
+import EditClient from "./editClient";
+import {deleteItemClient} from "../../../store/client";
 
 const ItemService = ({item}:any)=>{
 
@@ -21,7 +21,7 @@ const ItemService = ({item}:any)=>{
         try {
             let res = await callApi().delete(`clients/${id}`)
 
-            dispatch(deleteItemCustomersAndReviews(id))
+            dispatch(deleteItemClient(id))
 
             toast.success('Removed successfully', {
                 position: "bottom-right",
@@ -64,7 +64,7 @@ const ItemService = ({item}:any)=>{
                     edit ?
                         <>
                             <Modal.Body>
-                                <EditCustomersAndReviews item={item}/>
+                                <EditClient item={item}/>
                             </Modal.Body>
                             <Modal.Footer>
                                 <button onClick={()=>setEdit(false)} type="button" className="btn btn-warning h6">Cancel</button>

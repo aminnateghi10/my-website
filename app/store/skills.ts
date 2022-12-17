@@ -1,21 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
-import {RootState} from "./index";
-import {SkillInterface} from "../components/shared/interface";
 
+import {RootState} from "./index";
+import {SkillInterface} from "../contracts/interface";
 
 interface SkillsState {
-    skills?: any,
+    skills: SkillInterface[],
 }
 
 const initialState: SkillsState = {
-    skills: undefined ,
+    skills: [] ,
 }
+
 export const Skills = createSlice({
     name: 'skills',
     initialState,
     reducers: {
-        createSkills: (state, action: PayloadAction<SkillInterface | undefined>) => {
+        createSkills: (state, action: PayloadAction<SkillInterface[] | []>) => {
             state.skills = action.payload
         },
         editItemSkills: (state, action: PayloadAction<SkillInterface>) => {
@@ -30,14 +31,12 @@ export const Skills = createSlice({
             let newState = state.skills?.filter((item: SkillInterface) => item.id != action.payload);
             state.skills = newState;
         },
-        addItemSkills: (state, action: PayloadAction<any>) => {
+        addItemSkills: (state, action: PayloadAction<SkillInterface>) => {
             state.skills.push(action.payload)
         },
     }
 });
 
 export const { createSkills , deleteItemSkills , editItemSkills , addItemSkills} = Skills.actions;
-
 export const selectUser = (state: RootState) => state.skills;
-
 export default Skills.reducer;

@@ -4,8 +4,8 @@ import {toast} from "react-toastify";
 import * as yup from 'yup'
 
 import callApi from "../../../helpers/callApi";
-import {addItemCustomersAndReviews} from "../../../store/customersAndReviews";
 import Input from "../../shared/form/input";
+import {addItemClient} from "../../../store/client";
 
 const AddCustomersAndReviews = ()=>{
 
@@ -37,7 +37,7 @@ const AddCustomersAndReviews = ()=>{
                         data.append('body', values.body);
 
                         let res = await callApi().post('clients', data).then(res => {
-                            dispatch(addItemCustomersAndReviews(res.data.data))
+                            dispatch(addItemClient(res.data.data))
                         })
 
                         toast.success('Added successfully', {

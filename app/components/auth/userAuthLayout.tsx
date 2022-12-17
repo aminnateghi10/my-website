@@ -12,8 +12,8 @@ const UserAuthLayout = ({children}: Props) => {
     console.log(user, error, loading)
     if (loading) <h2>loading...</h2>
     if (user) {
-        Router.push('/admin')
         return null
+        Router.push('/admin')
     }
     return <>{children}</>
 }

@@ -2,15 +2,16 @@ import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
 
 import {RootState} from "./index";
-import {ClientInterface} from "../components/shared/interface";
+import {ClientInterface} from "../contracts/interface";
 
 interface ClientState {
-    client: ClientInterface[]| [],
+    client: ClientInterface[],
 }
 
 const initialState: ClientState = {
     client: [] ,
 }
+
 export const Client = createSlice({
     name: 'client',
     initialState,
@@ -37,7 +38,5 @@ export const Client = createSlice({
 });
 
 export const { createClient , deleteItemClient , editItemClient , addItemClient} = Client.actions;
-
 export const selectUser = (state: RootState) => state.client;
-
 export default Client.reducer;

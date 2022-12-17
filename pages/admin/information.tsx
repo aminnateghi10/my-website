@@ -4,25 +4,25 @@ import {NextPageWithLayout} from "../_app";
 import callApi from "../../app/helpers/callApi";
 import InformationForm from "../../app/form/admin/informationForm";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
+import {InformationInterface} from "../../app/contracts/interface";
 
+const Information: NextPageWithLayout = () => {
+    const [data, setData] = useState<InformationInterface>();
 
-const Information :NextPageWithLayout= ()=>{
-
-    useEffect( () => {
+    useEffect(() => {
         callApi().get('information').then(res => setData(res.data.data))
     }, []);
 
-    const [data , setData] = useState();
-
-    return(
-        data ?
-            <div className="px-5 pt-3">
-                <InformationForm data={data}/>
-            </div>
-            :null
+    return (
+        <div className="px-5 pt-3">
+            {
+                data && <InformationForm data={data}/>
+            }
+        </div>
     )
+
 }
 
-Information.getLayout=(page)=><UserPanelLayout>{page}</UserPanelLayout>
+Information.getLayout = (page) => <UserPanelLayout>{page}</UserPanelLayout>
 
 export default Information;

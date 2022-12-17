@@ -1,9 +1,9 @@
 @font-face {
     font-family: iran-sans;
-    src: url('../public/font/IranSans/inan-sans.eot'),
-    url('../public/font/IranSans/inan-sans.ttf'),
-    url('../public/font/IranSans/inan-sans.woff'),
-    url('../public/font/IranSans/inan-sans.svg');
+    src: url('../font/IranSans/inan-sans.eot'),
+    url('../font/IranSans/inan-sans.ttf'),
+    url('../font/IranSans/inan-sans.woff'),
+    url('../font/IranSans/inan-sans.svg');
 }
 
 /*@font-face {*/

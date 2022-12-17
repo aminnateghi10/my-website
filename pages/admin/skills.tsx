@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {RootState} from "../../app/store";
@@ -8,11 +8,8 @@ import {createSkills} from "../../app/store/skills";
 import Item from "../../app/components/admin/skills/item";
 import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import AddSkillForm from "../../app/components/admin/skills/addSkillForm";
-import {SkillInterface} from "../../app/components/shared/interface";
-
 
 const Skills: NextPageWithLayout = () => {
-
     const data = useSelector((state: RootState) => state.skills)
     const dispatch = useDispatch();
 
@@ -27,7 +24,7 @@ const Skills: NextPageWithLayout = () => {
             <h2 className='text-center mt-5'>List Skills</h2>
             <div className='row border mt-1 p-3 justify-content-center justify-content-md-start'>
                 {
-                    data?.skills?.map((item: SkillInterface) => (
+                    data?.skills?.map((item) => (
                         <div className='col-12 col-md-6 col-lg-6 col-xl-6' style={{maxWidth: '250px'}} key={item?.id}>
                             <Item item={item}/>
                         </div>
@@ -35,7 +32,6 @@ const Skills: NextPageWithLayout = () => {
                 }
             </div>
         </div>
-
     )
 }
 

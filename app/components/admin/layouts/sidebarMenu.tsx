@@ -12,7 +12,6 @@ import Link from "next/link";
 import ActiveLink from "../../shared/activeLink";
 
 const SidebarMenu = () => {
-
         const navigation = [
             {name:'Dasbord' , href:'/admin' , icon:HomeIcon},
             {name:'Messages' , href:'/admin/messages' , icon:EnvelopeIcon},
@@ -21,7 +20,7 @@ const SidebarMenu = () => {
                     {name:'Skills' , href:'/admin/skills'},
                     {name:'Services' , href:'/admin/services'},
                     {name:'experiences' , href:'/admin/experiences'},
-                    {name:'Customers and reviews' , href:'/admin/customers-and-reviews'},
+                    {name:'Customers and reviews' , href:'/admin/client'},
                 ]},
         ]
 

@@ -3,11 +3,9 @@ import {ErrorMessage, Form, Formik} from "formik";
 import * as yup from 'yup'
 
 import callApi from "../../helpers/callApi";
-import {InformationFormValuesInterface} from "../../contracts/admin";
 import InnerInformationForm from "../../components/admin/information/innerInformationForm";
-import {InformationInterface} from "../../components/shared/interface";
+import {InformationInterface} from "../../contracts/interface";
 import Input from "../../components/shared/form/input";
-import {value} from "dom7";
 
 interface InformationFormProps {
     data: InformationInterface

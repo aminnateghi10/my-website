@@ -30,7 +30,6 @@ const callApi = () => {
             }
         }
     )
-
     return axiosInstance;
 }
 

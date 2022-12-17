@@ -3,23 +3,15 @@ import {Button, Modal, Table} from "react-bootstrap";
 import {toast} from "react-toastify";
 
 import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import callApi from "../../app/helpers/callApi";
-
-interface MassageItemProps {
-    "id": number,
-    "name": string,
-    "email": string,
-    "subject": string,
-    "body": string,
-}
+import UserPanelLayout from "../../app/components/admin/userPanelLayout";
+import {TicketInterface} from "../../app/contracts/interface";
 
 const Messages: NextPageWithLayout = () => {
-
-    const [data, setData] = useState<MassageItemProps[]>();
-
+    const [data, setData] = useState<TicketInterface[]>();
     const [show, setShow] = useState(false);
-    const [massageView , setMassageView] = useState<MassageItemProps>({
+
+    const [massageView, setMassageView] = useState<TicketInterface>({
         "id": 0,
         "name": '',
         "email": '',
@@ -27,7 +19,7 @@ const Messages: NextPageWithLayout = () => {
         "body": '',
     })
     const handleClose = () => setShow(false);
-    const handleShow = (item:MassageItemProps) =>{
+    const handleShow = (item: TicketInterface) => {
         setMassageView(item)
         setShow(true);
     };
@@ -39,7 +31,7 @@ const Messages: NextPageWithLayout = () => {
     const deleteItem = async (id: number) => {
         try {
             let res = await callApi().delete(`tickets/${id}`);
-            let newList = data?.filter((item: MassageItemProps) => item.id != id);
+            let newList = data?.filter((item) => item.id != id);
             setData(newList);
             console.log(newList)
             toast.success('Removed successfully', {
@@ -53,11 +45,10 @@ const Messages: NextPageWithLayout = () => {
                 theme: "light",
             });
             setShow(false);
-        }catch (err){
+        } catch (err) {
             console.log(err)
         }
     }
-
 
     return (
         <div className="px-4">
@@ -80,14 +71,15 @@ const Messages: NextPageWithLayout = () => {
                                 </div>
                             </td>
                         </tr>
-                        : data?.map((item: MassageItemProps, index: number) => (
+                        : data?.map((item, index: number) => (
                             <tr data-radium="true" key={item.id}>
                                 <td className="text-center">{index}</td>
                                 <td>{item.name}</td>
                                 <td className="d-none d-md-table-cell">{item.email}</td>
                                 <td className="d-none d-md-table-cell">{item.subject}</td>
                                 <td className="text-center">
-                                    <button onClick={()=>handleShow(item)} type="button" className="btn btn-info mr-1 h6">view
+                                    <button onClick={() => handleShow(item)} type="button"
+                                            className="btn btn-info mr-1 h6">view
                                     </button>
                                     <button onClick={() => deleteItem(item.id)} type="button" className="btn btn-danger h6">
                                         Delete

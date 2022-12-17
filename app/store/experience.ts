@@ -1,21 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
-import {RootState} from "./index";
-import {ExperienceInterface} from "../components/shared/interface";
 
+import {RootState} from "./index";
+import {ExperienceInterface} from "../contracts/interface";
 
 interface ServicesState {
-    experience?: any,
+    experience: ExperienceInterface[],
 }
 
 const initialState: ServicesState = {
-    experience: undefined ,
+    experience: [] ,
 }
+
 export const Experience = createSlice({
     name: 'services',
     initialState,
     reducers: {
-        createExperience: (state, action: PayloadAction<ExperienceInterface | undefined>) => {
+        createExperience: (state, action: PayloadAction<ExperienceInterface[] | []>) => {
             state.experience = action.payload
         },
         editItemExperience: (state, action: PayloadAction<ExperienceInterface>) => {
@@ -31,14 +32,12 @@ export const Experience = createSlice({
             let newState = state.experience?.filter((item: ExperienceInterface) => item.id != action.payload);
             state.experience = newState;
         },
-        addItemExperience: (state, action: PayloadAction<any>) => {
-            // state.experience.push(action.payload)
+        addItemExperience: (state, action: PayloadAction<ExperienceInterface>) => {
+            state.experience.push(action.payload)
         },
     }
 });
 
 export const { createExperience , deleteItemExperience , editItemExperience , addItemExperience} = Experience.actions;
-
 export const selectUser = (state: RootState) => state.experience;
-
 export default Experience.reducer;

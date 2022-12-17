@@ -1,24 +1,22 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
-import {NextPageWithLayout} from "../_app";
-import UserPanelLayout from "../../app/components/admin/userPanelLayout";
-import callApi from "../../app/helpers/callApi";
-import AddService from "../../app/components/admin/services/addService";
-import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../app/store";
+import {NextPageWithLayout} from "../_app";
+import callApi from "../../app/helpers/callApi";
+import {useDispatch, useSelector} from "react-redux";
 import {createServices} from "../../app/store/services";
+import AddService from "../../app/components/admin/services/addService";
+import UserPanelLayout from "../../app/components/admin/userPanelLayout";
 import ItemService from "../../app/components/admin/services/itemService";
-import {ServiceInterface} from "../../app/components/shared/interface";
-
 
 const Services: NextPageWithLayout = () => {
-    const [state, setState] = useState<ServiceInterface[]>();
-
     const data = useSelector((state: RootState) => state.services)
     const dispatch = useDispatch();
+
     useEffect(() => {
         callApi().get('services').then(res => dispatch(createServices(res.data.data)))
     }, [])
+
     return (
         <div className='p-5'>
             <AddService/>
@@ -34,7 +32,7 @@ const Services: NextPageWithLayout = () => {
                 </thead>
                 <tbody>
                 {
-                    data?.services?.map((item : ServiceInterface) => (
+                    data?.services?.map((item) => (
                             <tr key={item.id}>
                                 <ItemService item={item}/>
                             </tr>

@@ -5,9 +5,9 @@ import {toast} from "react-toastify";
 import * as yup from "yup";
 import Input from "../../shared/form/input";
 import {useDispatch} from "react-redux";
-import {editItemCustomersAndReviews} from "../../../store/customersAndReviews";
+import {editItemClient} from "../../../store/client";
 
-const EditCustomersAndReviews = ({item}:any)=>{
+const EditClient = ({item}:any)=>{
 
     const EditClientsFormValidationSchema = yup.object().shape({
         name: yup.string().required(),
@@ -37,7 +37,7 @@ const EditCustomersAndReviews = ({item}:any)=>{
                 data.append('_method', 'PUT');
                 try {
                     let res = await callApi().post(`clients/${item.id}`, data);
-                    dispatch(editItemCustomersAndReviews(res.data.data));
+                    dispatch(editItemClient(res.data.data));
                     toast.success('Editing was done successfully', {
                         position: "bottom-right",
                         autoClose: 2000,
@@ -80,4 +80,4 @@ const EditCustomersAndReviews = ({item}:any)=>{
     )
 }
 
-export default EditCustomersAndReviews;
+export default EditClient;
