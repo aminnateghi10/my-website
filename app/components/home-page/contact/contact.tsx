@@ -1,4 +1,4 @@
-import {InformationInterface} from "../../shared/interface";
+import {InformationInterface} from "../../../contracts/interface";
 import ContactForm from "../../../form/home-page/contactForm";
 
 interface PropsInterface {
@@ -8,7 +8,6 @@ interface PropsInterface {
 const Contact = ({information}: PropsInterface) => {
 
     return (
-        <>
             <section id="contact">
                 <div className="container">
                     {/* section title */}
@@ -31,7 +30,6 @@ const Contact = ({information}: PropsInterface) => {
                     </div>
                 </div>
             </section>
-        </>
     )
 }
 

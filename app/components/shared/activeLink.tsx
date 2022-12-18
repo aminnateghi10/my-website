@@ -9,7 +9,6 @@ interface Props {
 }
 
 const ActiveLink = ({children, href, as, ...props}: Props) => {
-
     const {asPath} = useRouter()
     const active = asPath === href || asPath === as;
 

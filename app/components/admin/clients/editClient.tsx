@@ -7,7 +7,7 @@ import Input from "../../shared/form/input";
 import {useDispatch} from "react-redux";
 import {editItemClient} from "../../../store/client";
 
-const EditClient = ({item}:any)=>{
+const EditClient = ({item}: any) => {
 
     const EditClientsFormValidationSchema = yup.object().shape({
         name: yup.string().required(),
@@ -18,7 +18,7 @@ const EditClient = ({item}:any)=>{
 
     const dispatch = useDispatch();
 
-    return(
+    return (
         <Formik
             initialValues={{
                 name: item.name,
@@ -48,11 +48,11 @@ const EditClient = ({item}:any)=>{
                         progress: undefined,
                         theme: "light",
                     })
-                }catch (err){
+                } catch (err) {
                     console.log(err)
                 }
 
-                }}
+            }}
         >
             {(formProps) => (
                 <Form className="needs-validation text-left">
@@ -60,10 +60,10 @@ const EditClient = ({item}:any)=>{
                         <Input name='name' inputClassName='d-block form-control' label='Name'/>
                     </div>
                     <div className='mt-2'>
-                        <Input name='job' label='Job' inputClassName='d-block form-control' />
+                        <Input name='job' label='Job' inputClassName='d-block form-control'/>
                     </div>
                     <div className='mt-2'>
-                        <Input name='body' label='Body' inputClassName='d-block form-control' />
+                        <Input name='body' label='Body' inputClassName='d-block form-control'/>
                     </div>
                     <div className='mt-2'>
                         <label>Img</label>

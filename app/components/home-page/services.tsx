@@ -1,11 +1,10 @@
-import {ServiceInterface} from "../shared/interface";
+import {ServiceInterface} from "../../contracts/interface";
 
 interface PropsInterface {
     services: ServiceInterface[],
 }
 
 const Services = ({services}: PropsInterface) => {
-
     return (
         <section id="services">
             <div className="container">

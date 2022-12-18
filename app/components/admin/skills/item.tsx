@@ -1,3 +1,4 @@
+import * as yup from "yup";
 import {useState} from "react";
 import {Form, Formik} from "formik";
 import {toast} from "react-toastify";
@@ -6,8 +7,6 @@ import {useDispatch} from "react-redux";
 import Input from "../../shared/form/input";
 import callApi from "../../../helpers/callApi";
 import {deleteItemSkills, editItemSkills} from "../../../store/skills";
-import * as yup from "yup";
-
 
 const Item = ({item}: any) => {
 
@@ -89,10 +88,10 @@ const Item = ({item}: any) => {
                 >
                     <Form className="card text-white text-center my-2 px-2" style={{background: `${item?.meta?.p}`}}>
                         <div className="card-header bg-skills-header p-0">
-                            <Input  inputClassName='form-control' name='title' label='Title'/>
+                            <Input inputClassName='form-control' name='title' label='Title'/>
                         </div>
                         <div>
-                            <Input  inputClassName='form-control' name='percent' label='Value'/>
+                            <Input inputClassName='form-control' name='percent' label='Value'/>
                             <Input inputClassName='form-control' name='color' label='Color' type='color'/>
                         </div>
                         <div className='d-flex justify-content-between px-2 py-2'>

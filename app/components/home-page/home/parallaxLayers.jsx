@@ -1,6 +1,5 @@
-
-function ParallaxLayers(){
-    return(
+const ParallaxLayers = () => {
+    return (
         <>
             <div className="parallax">
                 <svg width={27} height={29} className="layer p1">

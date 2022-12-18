@@ -1,4 +1,4 @@
-import {InformationInterface, SkillInterface} from "../shared/interface";
+import {InformationInterface, SkillInterface} from "../../contracts/interface";
 
 interface InterfaceProps {
     information: InformationInterface,
@@ -6,7 +6,6 @@ interface InterfaceProps {
 }
 
 const About = ({information, skills}: InterfaceProps) => {
-
     return (
         <section id="about">
             <div className="container">
@@ -16,7 +15,7 @@ const About = ({information, skills}: InterfaceProps) => {
                     <div className="col-md-3">
                         <div className="text-center text-md-left">
                             {/* avatar image */}
-                            <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4"
+                            <img style={{width:'150px',borderRadius:'50%'}} src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4"
                                  alt={information?.name}/>
                         </div>
                         <div className="spacer d-md-none d-lg-none" data-height={30}/>
@@ -45,8 +44,7 @@ const About = ({information, skills}: InterfaceProps) => {
                                                 <div className="progress">
                                                     <div className="progress-bar data-background" style={{
                                                         backgroundColor: `${item.meta.p}`,
-                                                        width: `${item.percent}%`
-                                                    }}></div>
+                                                        width: `${item.percent}%`}}></div>
                                                 </div>
                                             </div>
                                         ))

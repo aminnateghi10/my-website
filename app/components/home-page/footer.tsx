@@ -1,4 +1,4 @@
-import {InformationInterface} from "../shared/interface";
+import {InformationInterface} from "../../contracts/interface";
 
 interface InterfaceProps {
     information: InformationInterface,

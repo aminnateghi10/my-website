@@ -1,13 +1,12 @@
 import ParallaxLayers from "./parallaxLayers";
 import {FaFacebook, FaGithub, FaInstagram, FaTelegram} from 'react-icons/fa';
-import {InformationInterface} from "../../shared/interface";
+import {InformationInterface} from "../../../contracts/interface";
 
 interface InterfaceProps {
     information: InformationInterface
 }
 
 const Home = ({information}: InterfaceProps) => {
-
     return (
         <>
             <section id="home" className="home light d-flex align-items-center">
@@ -15,7 +14,7 @@ const Home = ({information}: InterfaceProps) => {
                     {/* intro */}
                     <div className="intro">
                         {/* avatar image */}
-                        <img src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4"
+                        <img style={{width:'108px',borderRadius:'50%'}} src={`${process.env.ASSETS_URL}${information?.image}`} className="mb-4"
                              alt={information?.name}/>
                         {/* info */}
                         <h1 className="mb-2 mt-0">{information?.name}</h1>

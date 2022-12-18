@@ -1,26 +1,25 @@
-import React from "react";
 
-function Preloader(){
-    return(
+const Preloader = () => {
+    return (
         <>
             <div id="preloader" className="light">
                 <div className="outer">
                     {/* Google Chrome */}
                     <div className="infinityChrome">
-                        <div />
-                        <div />
-                        <div />
+                        <div/>
+                        <div/>
+                        <div/>
                     </div>
                     {/* Safari and others */}
                     <div className="infinity">
                         <div>
-                            <span />
+                            <span/>
                         </div>
                         <div>
-                            <span />
+                            <span/>
                         </div>
                         <div>
-                            <span />
+                            <span/>
                         </div>
                     </div>
                     {/* Stuff */}
@@ -31,13 +30,13 @@ function Preloader(){
                     >
                         <defs>
                             <filter id="goo">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation={6} result="blur" />
+                                <feGaussianBlur in="SourceGraphic" stdDeviation={6} result="blur"/>
                                 <feColorMatrix
                                     in="blur"
                                     values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
                                     result="goo"
                                 />
-                                <feBlend in="SourceGraphic" in2="goo" />
+                                <feBlend in="SourceGraphic" in2="goo"/>
                             </filter>
                         </defs>
                     </svg>

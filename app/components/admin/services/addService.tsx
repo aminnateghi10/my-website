@@ -1,13 +1,12 @@
 import {useDispatch} from "react-redux";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {toast} from "react-toastify";
+import * as yup from "yup";
 
 import callApi from "../../../helpers/callApi";
 import {addItemServices} from "../../../store/services";
-import * as yup from "yup";
 
-const AddService = ()=>{
-
+const AddService = () => {
     const dispatch = useDispatch();
 
     const AddServiceFormValidationSchema = yup.object().shape({
@@ -16,15 +15,15 @@ const AddService = ()=>{
         img: yup.mixed().required(),
     });
 
-    return(
+    return (
         <>
             <h2 className='text-center mt-5'>Add Service</h2>
             <div className='d-flex justify-content-center'>
                 <Formik
                     initialValues={{
-                        title:'',
-                        body:'',
-                        img:'',
+                        title: '',
+                        body: '',
+                        img: '',
                     }}
 
                     validationSchema={AddServiceFormValidationSchema}
@@ -51,7 +50,7 @@ const AddService = ()=>{
                                 progress: undefined,
                                 theme: "light",
                             })
-                        }catch (err){
+                        } catch (err) {
                             console.log(err)
                         }
                     }}

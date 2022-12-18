@@ -7,7 +7,7 @@ import {toast} from "react-toastify";
 import EditClient from "./editClient";
 import {deleteItemClient} from "../../../store/client";
 
-const ItemService = ({item}:any)=>{
+const ItemService = ({item}: any) => {
 
     const [show, setShow] = useState(false);
 
@@ -17,7 +17,7 @@ const ItemService = ({item}:any)=>{
 
     const dispatch = useDispatch()
 
-    const deleteItem =async (id:number) => {
+    const deleteItem = async (id: number) => {
         try {
             let res = await callApi().delete(`clients/${id}`)
 
@@ -33,14 +33,14 @@ const ItemService = ({item}:any)=>{
                 progress: undefined,
                 theme: "light",
             });
-        }catch (err){
+        } catch (err) {
             console.log(err)
         }
     }
 
     console.log(item)
 
-    return(
+    return (
         <>
             <th scope="row">{item.id}</th>
             <td>{item.name}</td>
@@ -49,7 +49,8 @@ const ItemService = ({item}:any)=>{
             <td>
                 <div>
                     <button type="button" className="btn btn-info mr-1 h6" onClick={handleClose}>view</button>
-                    <button type="button" className="btn btn-danger h6" onClick={()=>deleteItem(item.id)}>Delete</button>
+                    <button type="button" className="btn btn-danger h6" onClick={() => deleteItem(item.id)}>Delete
+                    </button>
                 </div>
             </td>
 
@@ -67,7 +68,9 @@ const ItemService = ({item}:any)=>{
                                 <EditClient item={item}/>
                             </Modal.Body>
                             <Modal.Footer>
-                                <button onClick={()=>setEdit(false)} type="button" className="btn btn-warning h6">Cancel</button>
+                                <button onClick={() => setEdit(false)} type="button"
+                                        className="btn btn-warning h6">Cancel
+                                </button>
                             </Modal.Footer>
                         </>
                         :
@@ -94,10 +97,12 @@ const ItemService = ({item}:any)=>{
                                 <Button variant="secondary" onClick={handleClose}>
                                     Close
                                 </Button>
-                                <button onClick={()=>deleteItem(item.id)} type="button" className="btn btn-danger h6">
+                                <button onClick={() => deleteItem(item.id)} type="button" className="btn btn-danger h6">
                                     Delete
                                 </button>
-                                <button onClick={()=>setEdit(true)} type="button" className="btn btn-success h6">Edit</button>
+                                <button onClick={() => setEdit(true)} type="button"
+                                        className="btn btn-success h6">Edit
+                                </button>
                             </Modal.Footer>
                         </>
                 }

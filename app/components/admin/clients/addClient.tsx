@@ -7,7 +7,7 @@ import callApi from "../../../helpers/callApi";
 import Input from "../../shared/form/input";
 import {addItemClient} from "../../../store/client";
 
-const AddCustomersAndReviews = ()=>{
+const AddCustomersAndReviews = () => {
 
     const dispatch = useDispatch();
 
@@ -17,14 +17,14 @@ const AddCustomersAndReviews = ()=>{
         body: yup.string().required(),
         img: yup.mixed().required(),
     });
-    return(
+    return (
         <div className='d-flex justify-content-center'>
             <Formik
                 initialValues={{
-                    name:'',
-                    job:'',
-                    body:'',
-                    img:'',
+                    name: '',
+                    job: '',
+                    body: '',
+                    img: '',
                 }}
                 validationSchema={AddClientsFormValidationSchema}
                 onSubmit={async (values) => {
@@ -50,7 +50,7 @@ const AddCustomersAndReviews = ()=>{
                             progress: undefined,
                             theme: "light",
                         })
-                    }catch (err){
+                    } catch (err) {
                         console.log(err)
                     }
                 }}
@@ -61,10 +61,10 @@ const AddCustomersAndReviews = ()=>{
                             <Input name='name' inputClassName='d-block form-control' label='Name'/>
                         </div>
                         <div className='mt-2'>
-                            <Input name='job' label='Job' inputClassName='d-block form-control' />
+                            <Input name='job' label='Job' inputClassName='d-block form-control'/>
                         </div>
                         <div className='mt-2'>
-                            <Input name='body' label='Body' inputClassName='d-block form-control' />
+                            <Input name='body' label='Body' inputClassName='d-block form-control'/>
                         </div>
                         <div className='mt-2'>
                             <label>Img</label>

@@ -1,15 +1,16 @@
 import {ReactNode} from "react";
-import useAuth from "../../helpers/useAuth";
 import Router from "next/router";
 
+import useAuth from "../../helpers/useAuth";
+import Preloader from "../shared/preloader";
+
 interface Props {
-    children : ReactNode,
+    children: ReactNode,
 }
 
 const UserAuthLayout = ({children}: Props) => {
     const {user, error, loading} = useAuth();
-    console.log(user, error, loading)
-    if (loading) return <h2>loading...</h2>
+    if (loading) return <Preloader/>
     if (error) return <>{children}</>
     if (user) {
         Router.push('/admin')

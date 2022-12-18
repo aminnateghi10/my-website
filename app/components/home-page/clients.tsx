@@ -1,14 +1,13 @@
 import {Pagination} from "swiper";
 import {Swiper, SwiperSlide} from 'swiper/react';
 
-import {ClientInterface} from "../shared/interface";
+import {ClientInterface} from "../../contracts/interface";
 
 interface PropsInterface {
     clients: ClientInterface[],
 }
 
 const Clients = ({clients}: PropsInterface) => {
-
     return (
         <section id="testimonials">
             <div className="container">
